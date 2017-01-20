@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="xgd-4c-dc8">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-icon" translatesAutoresizingMaskIntoConstraints="NO" id="M0M-Y8-T3f">
+                                <rect key="frame" x="103" y="107" width="208" height="181"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="181" id="cp5-cl-3RU"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="World Explorer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dan-Ru-Ex1">
+                                <rect key="frame" x="75.666666666666686" y="52" width="263" height="47"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="M0M-Y8-T3f" firstAttribute="top" secondItem="Dan-Ru-Ex1" secondAttribute="bottom" constant="8" id="8sD-Xq-2ND"/>
+                            <constraint firstItem="Dan-Ru-Ex1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CFe-pd-hfs"/>
+                            <constraint firstItem="Dan-Ru-Ex1" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="32" id="QOT-90-fyw"/>
+                            <constraint firstItem="xgd-4c-dc8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dcx-O1-fpo"/>
+                            <constraint firstItem="xgd-4c-dc8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="lnH-Tn-g02"/>
+                            <constraint firstItem="xgd-4c-dc8" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="oDE-Gl-Dzj"/>
+                            <constraint firstItem="xgd-4c-dc8" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="ohd-hg-udN"/>
+                            <constraint firstItem="M0M-Y8-T3f" firstAttribute="centerX" secondItem="xgd-4c-dc8" secondAttribute="centerX" id="ouW-cV-Td4"/>
+                            <constraint firstItem="M0M-Y8-T3f" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="83" id="szy-UZ-EK1"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="50.724637681159422" y="374.18478260869568"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LaunchScreen" width="1763" height="2955"/>
+        <image name="search-icon" width="512" height="509"/>
+    </resources>
+</document>
