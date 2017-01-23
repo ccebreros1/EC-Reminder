@@ -6,6 +6,7 @@
 //  Copyright © 2017 Cesar A Cebreros Lara. All rights reserved.
 //
 //  This project was done with ideas taken from http://www.techotopia.com/index.php/Using_iOS_8_Event_Kit_and_Swift_to_Create_Date_and_Location_Based_Reminders for learning purposes
+//Go to http://www.techotopia.com/index.php/Using_iOS_8_Event_Kit_and_Swift_to_Create_Date_and_Location_Based_Reminders#An_Overview_of_the_Event_Kit_Framework to learn more
 
 import UIKit
 import EventKit
