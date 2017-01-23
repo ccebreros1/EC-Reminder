@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,68 +19,67 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohh-7d-5XG">
-                                <rect key="frame" x="77" y="279" width="126" height="89"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="89" id="2dT-ih-mUL"/>
-                                    <constraint firstAttribute="width" secondItem="Ohh-7d-5XG" secondAttribute="height" multiplier="126:89" id="2yb-fk-RoU"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="1"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ls-w3-KXW">
-                                <rect key="frame" x="77" y="368" width="126" height="89"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="9ls-w3-KXW" secondAttribute="height" multiplier="126:89" id="h6t-ST-76V"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="11"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgh-ol-RN3">
-                                <rect key="frame" x="203" y="279" width="126" height="89"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Kgh-ol-RN3" secondAttribute="height" multiplier="126:89" id="oEe-av-nk9"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="6"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UKN-C2-psY">
-                                <rect key="frame" x="203" y="368" width="126" height="89"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="UKN-C2-psY" secondAttribute="height" multiplier="126:89" id="f7X-X1-XIw"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="4"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of reminder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bd8-V0-31m">
+                                <rect key="frame" x="20" y="75" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onTapGestureRecognized:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="QCL-vS-iKF"/>
+                                </connections>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Who-uk-9Bf">
+                                <rect key="frame" x="0.0" y="251" width="414" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="506886463.65884697">
+                                    <!--2017-01-23 17:47:43 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVL-cu-0M9">
+                                <rect key="frame" x="20" y="134" width="374" height="30"/>
+                                <state key="normal" title="Set Reminder"/>
+                                <connections>
+                                    <action selector="setReminder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YsO-rt-vBU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="9ls-w3-KXW" firstAttribute="bottom" secondItem="UKN-C2-psY" secondAttribute="bottom" id="0QI-It-0b0"/>
-                            <constraint firstItem="Ohh-7d-5XG" firstAttribute="leading" secondItem="9ls-w3-KXW" secondAttribute="leading" id="16L-Vu-xuc"/>
-                            <constraint firstItem="9ls-w3-KXW" firstAttribute="baseline" secondItem="UKN-C2-psY" secondAttribute="baseline" id="1ez-i6-SNA"/>
-                            <constraint firstItem="Ohh-7d-5XG" firstAttribute="top" secondItem="Kgh-ol-RN3" secondAttribute="top" id="35M-DY-E1W"/>
-                            <constraint firstItem="Ohh-7d-5XG" firstAttribute="trailing" secondItem="9ls-w3-KXW" secondAttribute="trailing" id="A0m-bi-C8W"/>
-                            <constraint firstItem="Ohh-7d-5XG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="61" id="EGn-Uh-cXC"/>
-                            <constraint firstItem="Kgh-ol-RN3" firstAttribute="leading" secondItem="UKN-C2-psY" secondAttribute="leading" id="N6Z-4z-9DZ"/>
-                            <constraint firstItem="Kgh-ol-RN3" firstAttribute="leading" secondItem="Ohh-7d-5XG" secondAttribute="trailing" id="QO2-XS-TIl"/>
-                            <constraint firstItem="Ohh-7d-5XG" firstAttribute="bottom" secondItem="Kgh-ol-RN3" secondAttribute="bottom" id="aXW-EY-Rs0"/>
-                            <constraint firstItem="Ohh-7d-5XG" firstAttribute="baseline" secondItem="Kgh-ol-RN3" secondAttribute="baseline" id="bY9-p3-eNW"/>
-                            <constraint firstItem="Kgh-ol-RN3" firstAttribute="firstBaseline" secondItem="Ohh-7d-5XG" secondAttribute="firstBaseline" id="ecN-q2-rmY"/>
-                            <constraint firstItem="9ls-w3-KXW" firstAttribute="top" secondItem="UKN-C2-psY" secondAttribute="top" id="f5A-pf-gL1"/>
-                            <constraint firstItem="9ls-w3-KXW" firstAttribute="firstBaseline" secondItem="UKN-C2-psY" secondAttribute="firstBaseline" id="jQk-xP-ZMd"/>
-                            <constraint firstItem="Ohh-7d-5XG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="259" id="qdH-HE-iYv"/>
-                            <constraint firstItem="9ls-w3-KXW" firstAttribute="top" secondItem="Ohh-7d-5XG" secondAttribute="bottom" id="wAS-cA-BEq"/>
+                            <constraint firstItem="Who-uk-9Bf" firstAttribute="centerX" secondItem="Bd8-V0-31m" secondAttribute="centerX" id="33m-bE-Dyo"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Bd8-V0-31m" secondAttribute="leading" id="3vc-KT-pdQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NVL-cu-0M9" secondAttribute="trailing" id="H7D-It-yqm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Bd8-V0-31m" secondAttribute="trailing" id="J3m-c8-fVQ"/>
+                            <constraint firstItem="Bd8-V0-31m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sz0-Pz-5Ud"/>
+                            <constraint firstItem="Bd8-V0-31m" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="SzY-6c-nCv"/>
+                            <constraint firstItem="Who-uk-9Bf" firstAttribute="top" secondItem="NVL-cu-0M9" secondAttribute="bottom" constant="87" id="Ugt-Yi-x8X"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="NVL-cu-0M9" secondAttribute="leading" id="cSF-IJ-yaU"/>
+                            <constraint firstItem="Who-uk-9Bf" firstAttribute="centerX" secondItem="NVL-cu-0M9" secondAttribute="centerX" id="enK-iZ-gvn"/>
+                            <constraint firstItem="Who-uk-9Bf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="exO-vw-oqc"/>
+                            <constraint firstItem="Who-uk-9Bf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hpM-Q7-mqd"/>
+                            <constraint firstItem="NVL-cu-0M9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rve-RQ-3Gp"/>
+                            <constraint firstItem="Who-uk-9Bf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="231" id="t9C-sW-TCX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Who-uk-9Bf" secondAttribute="bottom" constant="269" id="uXi-tz-mIN"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="YvI-ux-ELW" appends="YES" id="yGA-Mh-qGN"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="Who-uk-9Bf" id="YEQ-bm-Qbi"/>
+                        <outlet property="reminderText" destination="Bd8-V0-31m" id="WDz-TO-SdV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="YvI-ux-ELW">
+                    <connections>
+                        <action selector="onTapGestureRecognized:" destination="BYZ-38-t0r" id="OSD-ER-zTl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+            <point key="canvasLocation" x="117.39130434782609" y="123.09782608695653"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="1" width="883" height="1477"/>
-        <image name="11" width="882" height="1476"/>
-        <image name="4" width="880" height="1476"/>
-        <image name="6" width="880" height="1479"/>
-    </resources>
 </document>

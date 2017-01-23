@@ -25,14 +25,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="xgd-4c-dc8">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-icon" translatesAutoresizingMaskIntoConstraints="NO" id="M0M-Y8-T3f">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Date" translatesAutoresizingMaskIntoConstraints="NO" id="M0M-Y8-T3f">
                                 <rect key="frame" x="103" y="107" width="208" height="181"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="181" id="cp5-cl-3RU"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="World Explorer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dan-Ru-Ex1">
-                                <rect key="frame" x="75.666666666666686" y="52" width="263" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Picker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dan-Ru-Ex1">
+                                <rect key="frame" x="103.66666666666669" y="52" width="207" height="47"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -59,7 +59,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Date" width="512" height="512"/>
         <image name="LaunchScreen" width="1763" height="2955"/>
-        <image name="search-icon" width="512" height="509"/>
     </resources>
 </document>
