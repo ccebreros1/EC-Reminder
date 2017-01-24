@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         eventStore.requestAccess(to: EKEntityType.reminder, completion:
             {(granted, error) in
                 if !granted {
-                    let controller = UIAlertController(title: "Reminder added", message: "Access to store not granted", preferredStyle: .alert)
+                    let controller = UIAlertController(title: "Reminder creation failed", message: "Access to reminders not granted", preferredStyle: .alert)
                     let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
                     controller.addAction(cancelAction)
                     self.present(controller, animated: true, completion: nil)
@@ -95,7 +95,7 @@ class ViewController: UIViewController {
             present(controller, animated: true, completion: nil)
             
         } catch let error {
-            let controller = UIAlertController(title: "Reminder added", message: "Reminder failed with error \(error.localizedDescription)", preferredStyle: .alert)
+            let controller = UIAlertController(title: "Reminder creation failed, message: "Reminder failed with error \(error.localizedDescription)", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
             controller.addAction(cancelAction)
             present(controller, animated: true, completion: nil)
