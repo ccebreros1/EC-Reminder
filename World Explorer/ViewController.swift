@@ -77,9 +77,11 @@ class ViewController: UIViewController {
     //Create a reminder and commit the transaction
     func createReminder() {
         
+        let reminderTitle = reminderText.text!
+        
         let reminder = EKReminder(eventStore: appDelegate.eventStore!)
         
-        reminder.title = reminderText.text!
+        reminder.title = reminderTitle
         reminder.calendar =
             appDelegate.eventStore!.defaultCalendarForNewReminders()
         let date = datePicker.date
@@ -92,14 +94,14 @@ class ViewController: UIViewController {
                                              commit: true)
             if onlyOnThisLocation.isOn
             {
-                let controller = UIAlertController(title: "Upcoming feature", message: "the reminder \(reminderText.text) would be created just for this location in the future. Now was created just using the time constraints", preferredStyle: .alert)
+                let controller = UIAlertController(title: "Upcoming feature", message: "the reminder \(reminderTitle) would be created just for this location in the future. Now was created just using the time constraints", preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
                 controller.addAction(cancelAction)
                 present(controller, animated: true, completion: nil)
             }
             else
             {
-                let controller = UIAlertController(title: "Reminder added", message: "the reminder \(reminderText.text) was created", preferredStyle: .alert)
+                let controller = UIAlertController(title: "Reminder added", message: "the reminder \(reminderTitle) was created", preferredStyle: .alert)
                 let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
                 controller.addAction(cancelAction)
                 present(controller, animated: true, completion: nil)
