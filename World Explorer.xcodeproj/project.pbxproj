@@ -259,6 +259,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = worldExplorer;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = F5D4HW677E;
 				INFOPLIST_FILE = "World Explorer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -274,6 +275,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = worldExplorer;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = F5D4HW677E;
 				INFOPLIST_FILE = "World Explorer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

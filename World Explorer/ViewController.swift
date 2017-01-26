@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var reminderText: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var onlyOnThisLocation: UISwitch!
     //This is for allowing access to reminders and calendar apps on iOS
     let appDelegate = UIApplication.shared.delegate
         as! AppDelegate
@@ -89,10 +90,22 @@ class ViewController: UIViewController {
         do {
             try appDelegate.eventStore?.save(reminder,
                                              commit: true)
-            let controller = UIAlertController(title: "Reminder added", message: "the reminder \(self.reminderText.text) was created", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
-            controller.addAction(cancelAction)
-            present(controller, animated: true, completion: nil)
+            if onlyOnThisLocation.isOn
+            {
+                let controller = UIAlertController(title: "Upcoming feature", message: "the reminder \(reminderText.text) would be created just for this location in the future. Now was created just using the time constraints", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
+                controller.addAction(cancelAction)
+                present(controller, animated: true, completion: nil)
+            }
+            else
+            {
+                let controller = UIAlertController(title: "Reminder added", message: "the reminder \(reminderText.text) was created", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
+                controller.addAction(cancelAction)
+                present(controller, animated: true, completion: nil)
+
+            }
+            
             
         } catch let error {
             let controller = UIAlertController(title: "Reminder creation failed", message: "Reminder failed with error \(error.localizedDescription)", preferredStyle: .alert)

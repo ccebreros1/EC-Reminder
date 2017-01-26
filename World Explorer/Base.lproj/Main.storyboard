@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -44,6 +44,23 @@
                                     <action selector="setReminder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YsO-rt-vBU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only on this location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoU-yi-5uS">
+                                <rect key="frame" x="20" y="782" width="288.5" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="Xck-BB-HRN"/>
+                                    <constraint firstAttribute="width" constant="288.67000000000002" id="axj-bm-Zc1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cU8-d4-APe">
+                                <rect key="frame" x="699" y="786" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="L3O-8W-FQ7"/>
+                                    <constraint firstAttribute="width" constant="49" id="tJT-nn-Fen"/>
+                                </constraints>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -51,16 +68,20 @@
                             <constraint firstItem="Who-uk-9Bf" firstAttribute="centerX" secondItem="Bd8-V0-31m" secondAttribute="centerX" id="33m-bE-Dyo"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Bd8-V0-31m" secondAttribute="leading" id="3vc-KT-pdQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NVL-cu-0M9" secondAttribute="trailing" id="H7D-It-yqm"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="MoU-yi-5uS" secondAttribute="leading" id="Ioz-MM-3ne"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Bd8-V0-31m" secondAttribute="trailing" id="J3m-c8-fVQ"/>
                             <constraint firstItem="Bd8-V0-31m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sz0-Pz-5Ud"/>
                             <constraint firstItem="Bd8-V0-31m" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="SzY-6c-nCv"/>
+                            <constraint firstItem="cU8-d4-APe" firstAttribute="top" secondItem="Who-uk-9Bf" secondAttribute="bottom" constant="31" id="Tld-Cl-ldB"/>
                             <constraint firstItem="Who-uk-9Bf" firstAttribute="top" secondItem="NVL-cu-0M9" secondAttribute="bottom" constant="87" id="Ugt-Yi-x8X"/>
                             <constraint firstAttribute="leadingMargin" secondItem="NVL-cu-0M9" secondAttribute="leading" id="cSF-IJ-yaU"/>
                             <constraint firstItem="Who-uk-9Bf" firstAttribute="centerX" secondItem="NVL-cu-0M9" secondAttribute="centerX" id="enK-iZ-gvn"/>
                             <constraint firstItem="Who-uk-9Bf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="exO-vw-oqc"/>
                             <constraint firstItem="Who-uk-9Bf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hpM-Q7-mqd"/>
+                            <constraint firstItem="MoU-yi-5uS" firstAttribute="top" secondItem="Who-uk-9Bf" secondAttribute="bottom" constant="27" id="qv5-Rj-NLH"/>
                             <constraint firstItem="NVL-cu-0M9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rve-RQ-3Gp"/>
                             <constraint firstItem="Who-uk-9Bf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="231" id="t9C-sW-TCX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cU8-d4-APe" secondAttribute="trailing" id="tqE-fI-QHR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Who-uk-9Bf" secondAttribute="bottom" constant="269" id="uXi-tz-mIN"/>
                         </constraints>
                         <connections>
@@ -69,6 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="Who-uk-9Bf" id="YEQ-bm-Qbi"/>
+                        <outlet property="onlyOnThisLocation" destination="cU8-d4-APe" id="80h-Zy-T0b"/>
                         <outlet property="reminderText" destination="Bd8-V0-31m" id="WDz-TO-SdV"/>
                     </connections>
                 </viewController>
@@ -79,7 +101,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="117.39130434782609" y="123.09782608695653"/>
+            <point key="canvasLocation" x="117.1875" y="123.04687499999999"/>
         </scene>
     </scenes>
 </document>
