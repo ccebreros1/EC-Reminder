@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E2BA0E51E48EFB800BA03A8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2BA0E41E48EFB800BA03A8 /* ListViewController.swift */; };
+		8E2BA0E71E48F04700BA03A8 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2BA0E61E48F04700BA03A8 /* NewEventViewController.swift */; };
 		8E362B891E326405000D6E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E362B881E326405000D6E8F /* AppDelegate.swift */; };
 		8E362B8B1E326405000D6E8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E362B8A1E326405000D6E8F /* ViewController.swift */; };
 		8E362B8E1E326405000D6E8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E362B8C1E326405000D6E8F /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E2BA0E41E48EFB800BA03A8 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		8E2BA0E61E48F04700BA03A8 /* NewEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		8E362B851E326405000D6E8F /* World Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "World Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E362B881E326405000D6E8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E362B8A1E326405000D6E8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				8E362B8F1E326405000D6E8F /* Assets.xcassets */,
 				8E362B911E326405000D6E8F /* LaunchScreen.storyboard */,
 				8E362B941E326405000D6E8F /* Info.plist */,
+				8E2BA0E41E48EFB800BA03A8 /* ListViewController.swift */,
+				8E2BA0E61E48F04700BA03A8 /* NewEventViewController.swift */,
 			);
 			path = "World Explorer";
 			sourceTree = "<group>";
@@ -139,6 +145,8 @@
 			files = (
 				8E362B8B1E326405000D6E8F /* ViewController.swift in Sources */,
 				8E362B891E326405000D6E8F /* AppDelegate.swift in Sources */,
+				8E2BA0E71E48F04700BA03A8 /* NewEventViewController.swift in Sources */,
+				8E2BA0E51E48EFB800BA03A8 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

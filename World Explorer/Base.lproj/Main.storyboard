@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qWy-0O-sKq">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--New Reminder-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="World_Explorer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NewEventViewController" customModule="World_Explorer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -32,7 +32,7 @@
                                 </connections>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Who-uk-9Bf">
-                                <rect key="frame" x="0.0" y="251" width="768" height="504"/>
+                                <rect key="frame" x="0.0" y="251" width="768" height="455"/>
                                 <date key="date" timeIntervalSinceReferenceDate="506886463.65884697">
                                     <!--2017-01-23 17:47:43 +0000-->
                                 </date>
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only on this location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoU-yi-5uS">
-                                <rect key="frame" x="20" y="782" width="288.5" height="39"/>
+                                <rect key="frame" x="20" y="733" width="288.5" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="Xck-BB-HRN"/>
                                     <constraint firstAttribute="width" constant="288.67000000000002" id="axj-bm-Zc1"/>
@@ -55,7 +55,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cU8-d4-APe">
-                                <rect key="frame" x="699" y="786" width="51" height="31"/>
+                                <rect key="frame" x="699" y="737" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="L3O-8W-FQ7"/>
                                     <constraint firstAttribute="width" constant="49" id="tJT-nn-Fen"/>
@@ -88,6 +88,7 @@
                             <outletCollection property="gestureRecognizers" destination="YvI-ux-ELW" appends="YES" id="yGA-Mh-qGN"/>
                         </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="New Reminder" id="BEW-x6-MwU"/>
                     <connections>
                         <outlet property="datePicker" destination="Who-uk-9Bf" id="YEQ-bm-Qbi"/>
                         <outlet property="onlyOnThisLocation" destination="cU8-d4-APe" id="80h-Zy-T0b"/>
@@ -102,6 +103,63 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="117.1875" y="123.04687499999999"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="IXs-dZ-ZFg">
+            <objects>
+                <tabBarController id="qWy-0O-sKq" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Hpj-a2-p71">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="9Vc-eZ-uqQ"/>
+                        <segue destination="kNG-uc-Teq" kind="relationship" relationship="viewControllers" id="8f7-cB-naU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3LI-GF-fce" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-549" y="500"/>
+        </scene>
+        <!--View Reminders-->
+        <scene sceneID="dd1-Dr-5a4">
+            <objects>
+                <viewController id="kNG-uc-Teq" customClass="ListViewController" customModule="World_Explorer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ngi-BL-2p4"/>
+                        <viewControllerLayoutGuide type="bottom" id="kjK-Zj-bya"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sDl-Op-0aM">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qXi-25-SPS">
+                                <rect key="frame" x="20" y="28" width="728" height="939"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reminderCell" id="fxC-HE-0Kp">
+                                        <rect key="frame" x="0.0" y="28" width="728" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxC-HE-0Kp" id="3Nd-eV-RH5">
+                                            <rect key="frame" x="0.0" y="0.0" width="728" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="View Reminders" id="x5W-GF-sYa"/>
+                    <connections>
+                        <outlet property="remindersTable" destination="qXi-25-SPS" id="0de-GP-9Xh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uYA-Zg-Kj1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="239.84375" y="802.734375"/>
         </scene>
     </scenes>
 </document>
