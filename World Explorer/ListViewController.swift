@@ -10,7 +10,7 @@
 import UIKit
 import EventKit
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class ListViewController:UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     
     //This is for allowing access to reminders and calendar apps on iOS
@@ -20,24 +20,57 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //Add a var for the event that will ask for permission
     var eventStore = EKEventStore()
     var reminders: [EKReminder]!
-    
+    var titles : [String] = []
+    let cellIdentifier = "reminderCell"
     @IBOutlet weak var remindersTable: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        askForPermission()
         remindersTable.dataSource = self
         remindersTable.delegate = self
+        remindersTable.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        askForPermission()
+        getReminders()
         
     }
-
-    override func didReceiveMemoryWarning() {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titles.count
+    }
+        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
+        UITableViewCell {
+            var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+            if (cell == nil) {
+                cell = UITableViewCell(
+                    style: UITableViewCellStyle.default,
+                    reuseIdentifier: cellIdentifier)
+            }
+            cell?.textLabel?.text = titles[indexPath.row]
+            return cell!
+    }
+    func getReminders()
+    {
+        let calendars =
+            eventStore.calendars(for: EKEntityType.reminder)
+        
+        for calendar in calendars as [EKCalendar] {
+            if calendar.title == "Reminders"
+            {
+                for reminder in reminders {
+                    titles.append(reminder.title)
+                }
+            }
+        }
+    }
+    
+        override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     //Ask for reminder permissions
     func askForPermission(){
         eventStore.requestAccess(to: EKEntityType.reminder, completion:
@@ -50,24 +83,5 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
         })
         
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.reminders.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell:UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "reminderCell")
-        let reminder:EKReminder! = self.reminders![indexPath.row]
-        cell.textLabel?.text = reminder.title
-        let formatter:DateFormatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        if let dueDate = reminder.dueDateComponents?.date{
-            cell.detailTextLabel?.text = formatter.string(from: dueDate)
-        }else{
-            cell.detailTextLabel?.text = "N/A"
-        }
-        return cell
     }
 }
