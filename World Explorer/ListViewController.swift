@@ -52,7 +52,7 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
         // Dispose of any resources that can be recreated.
     }
     
-    //Ask for reminder permissions
+    //Ask for reminder permissions`
     func askForPermission() -> Void{
         eventStore.requestAccess(to: EKEntityType.reminder, completion:
             {(granted, error) in
@@ -82,6 +82,7 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
             }
             //Add the label of the row
             cell?.textLabel?.text = titles[indexPath.row]
+            cell?.imageView?.image = UIImage(named: "bookmark-symbol")
             //Return a cell that was created
             return cell!
     }

@@ -59,12 +59,12 @@
 			isa = PBXGroup;
 			children = (
 				8E362B881E326405000D6E8F /* AppDelegate.swift */,
-				8E362B8A1E326405000D6E8F /* ViewController.swift */,
 				8E362B8C1E326405000D6E8F /* Main.storyboard */,
 				8E362B8F1E326405000D6E8F /* Assets.xcassets */,
 				8E362B911E326405000D6E8F /* LaunchScreen.storyboard */,
 				8E362B941E326405000D6E8F /* Info.plist */,
 				8E2BA0E41E48EFB800BA03A8 /* ListViewController.swift */,
+				8E362B8A1E326405000D6E8F /* ViewController.swift */,
 				8E2BA0E61E48F04700BA03A8 /* NewEventViewController.swift */,
 			);
 			path = "World Explorer";
