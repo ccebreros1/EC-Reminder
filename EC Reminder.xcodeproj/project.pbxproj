@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		8E2BA0E41E48EFB800BA03A8 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		8E2BA0E61E48F04700BA03A8 /* NewEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
-		8E362B851E326405000D6E8F /* World Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "World Explorer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E362B851E326405000D6E8F /* EC Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EC Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E362B881E326405000D6E8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E362B8A1E326405000D6E8F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8E362B8D1E326405000D6E8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		8E362B861E326405000D6E8F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8E362B851E326405000D6E8F /* World Explorer.app */,
+				8E362B851E326405000D6E8F /* EC Reminder.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,9 +73,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8E362B841E326405000D6E8F /* World Explorer */ = {
+		8E362B841E326405000D6E8F /* EC Reminder */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8E362B971E326405000D6E8F /* Build configuration list for PBXNativeTarget "World Explorer" */;
+			buildConfigurationList = 8E362B971E326405000D6E8F /* Build configuration list for PBXNativeTarget "EC Reminder" */;
 			buildPhases = (
 				8E362B811E326405000D6E8F /* Sources */,
 				8E362B821E326405000D6E8F /* Frameworks */,
@@ -85,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = "World Explorer";
+			name = "EC Reminder";
 			productName = "World Explorer";
-			productReference = 8E362B851E326405000D6E8F /* World Explorer.app */;
+			productReference = 8E362B851E326405000D6E8F /* EC Reminder.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -107,7 +107,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8E362B801E326405000D6E8F /* Build configuration list for PBXProject "World Explorer" */;
+			buildConfigurationList = 8E362B801E326405000D6E8F /* Build configuration list for PBXProject "EC Reminder" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -120,7 +120,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8E362B841E326405000D6E8F /* World Explorer */,
+				8E362B841E326405000D6E8F /* EC Reminder */,
 			);
 		};
 /* End PBXProject section */
@@ -266,7 +266,7 @@
 		8E362B981E326405000D6E8F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = worldExplorer;
+				ASSETCATALOG_COMPILER_APPICON_NAME = ECReminder;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = F5D4HW677E;
 				INFOPLIST_FILE = "World Explorer/Info.plist";
@@ -282,7 +282,7 @@
 		8E362B991E326405000D6E8F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = worldExplorer;
+				ASSETCATALOG_COMPILER_APPICON_NAME = ECReminder;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = F5D4HW677E;
 				INFOPLIST_FILE = "World Explorer/Info.plist";
@@ -298,7 +298,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8E362B801E326405000D6E8F /* Build configuration list for PBXProject "World Explorer" */ = {
+		8E362B801E326405000D6E8F /* Build configuration list for PBXProject "EC Reminder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E362B951E326405000D6E8F /* Debug */,
@@ -307,7 +307,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8E362B971E326405000D6E8F /* Build configuration list for PBXNativeTarget "World Explorer" */ = {
+		8E362B971E326405000D6E8F /* Build configuration list for PBXNativeTarget "EC Reminder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E362B981E326405000D6E8F /* Debug */,
