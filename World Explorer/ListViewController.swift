@@ -1,12 +1,12 @@
 //
 //  ListViewController.swift
-//  World Explorer
+//  EC Reminder
 //
 //  Created by Cesar A Cebreros Lara on 2017-02-06.
 //  Copyright © 2017 Cesar A Cebreros Lara. All rights reserved.
 //
 //  Followed this tutorial http://sweettutos.com/2015/11/25/eventkit-reminders-manager-how-to-retrieve-create-and-edit-reminders-from-within-your-app-in-swift/ for retrieving a list of reminders from the database of the phone/tablet. Many of the code belongs to that tutorial, and some modifications were made for the purpose of this lab.
-// Also got ideas from https://github.com/keith/reminders-cli/blob/master/Sources/Reminders.swift and many forums of StackOverflow
+// Also got ideas from https://github.com/keith/reminders-cli/blob/master/Sources/Reminders.swift and many forums of StackOverflow for understanding of methods and functions
 
 import UIKit
 import EventKit
@@ -37,14 +37,22 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
         remindersTable.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         //Ask for permission
         askForPermission()
-        //Get all reminders of the device
+        
+    }
+    
+    //This overrides when the view appears so that it re-loads without the need of closing and re-opening the app
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //Clear the array to avoid duplicated reminders
+        self.titles.removeAll()
+        //Load the reminders in the local database of the device
         getReminders()
-        //Reload the table view
+        //Re-load the table view
         DispatchQueue.main.async{
             self.remindersTable.reloadData()
         }
-        
     }
+    
     
     override func didReceiveMemoryWarning()
     {
@@ -83,9 +91,11 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
             //Add the label of the row
             cell?.textLabel?.text = titles[indexPath.row]
             cell?.imageView?.image = UIImage(named: "bookmark-symbol")
+            cell?.accessoryType = .disclosureIndicator
             //Return a cell that was created
             return cell!
     }
+    
     //END OF SECTION FOR METHODS RELATED TO TABLE VIEW
     
     //Get all reminders
