@@ -31,26 +31,20 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Ask for permission
+        askForPermission()
         // Do any additional setup after loading the view.
         remindersTable.dataSource = self
         remindersTable.delegate = self
         remindersTable.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        //Ask for permission
-        askForPermission()
         
     }
     
     //This overrides when the view appears so that it re-loads without the need of closing and re-opening the app
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //Clear the array to avoid duplicated reminders
-        self.titles.removeAll()
         //Load the reminders in the local database of the device
         getReminders()
-        //Re-load the table view
-        DispatchQueue.main.async{
-            self.remindersTable.reloadData()
-        }
     }
     
     
@@ -115,7 +109,9 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
         //Create a new instance of the reminders calendar
         let reminder = eventStore.calendar(withIdentifier: calUID!)
 
-
+        //Clear the array to avoid duplicated reminders
+        self.titles.removeAll()
+        
         //Get all reminders using the menthod created
         self.getAllReminders(onCalendar: reminder!){ reminders1 in
             //Loop through the whole reminders array to get the title of each one
@@ -124,7 +120,10 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
                 //add the title to the array of titles
                 self.titles.append(reminder.title)
             }
-        
+            //Re-load the table view
+            DispatchQueue.main.async{
+                self.remindersTable.reloadData()
+            }
         }
     }
     

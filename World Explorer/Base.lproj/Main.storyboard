@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qWy-0O-sKq">
-    <device id="retina4_7" orientation="landscape">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qWy-0O-sKq">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of reminder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bd8-V0-31m">
-                                <rect key="frame" x="16" y="49" width="343" height="30"/>
+                                <rect key="frame" x="16" y="75" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="mOm-yd-EYd"/>
                                 </constraints>
@@ -35,13 +35,13 @@
                                 </connections>
                             </textField>
                             <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Who-uk-9Bf">
-                                <rect key="frame" x="20" y="87" width="627" height="116"/>
+                                <rect key="frame" x="0.0" y="251" width="375" height="98"/>
                                 <date key="date" timeIntervalSinceReferenceDate="506886463.65884697">
                                     <!--2017-01-23 17:47:43 +0000-->
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only on this location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dSc-wW-BEg">
-                                <rect key="frame" x="20" y="253" width="288.5" height="39"/>
+                                <rect key="frame" x="16" y="447" width="247" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="Iok-eF-aRg"/>
                                 </constraints>
@@ -49,16 +49,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ajb-22-GrZ">
-                                <rect key="frame" x="598" y="257" width="51" height="31"/>
-                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVL-cu-0M9">
-                                <rect key="frame" x="367" y="48" width="280" height="30"/>
+                                <rect key="frame" x="16" y="134" width="343" height="30"/>
                                 <state key="normal" title="Set Reminder"/>
                                 <connections>
                                     <action selector="setReminder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YsO-rt-vBU"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ajb-22-GrZ">
+                                <rect key="frame" x="310" y="451" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -114,11 +114,11 @@
                                 <exclude reference="hHh-PL-PMa"/>
                                 <exclude reference="BHX-Zq-Ops"/>
                                 <exclude reference="Uqg-5f-Qtk"/>
-                                <exclude reference="Kup-xm-GXQ"/>
                                 <exclude reference="0uW-Pu-cRO"/>
                                 <exclude reference="1wK-7O-6mg"/>
                                 <exclude reference="r4S-4E-vM8"/>
                                 <exclude reference="uXG-XR-aNN"/>
+                                <exclude reference="Kup-xm-GXQ"/>
                                 <exclude reference="Vn1-Bq-dVn"/>
                                 <exclude reference="dvm-HT-pho"/>
                                 <exclude reference="efz-y7-ozA"/>
@@ -148,10 +148,6 @@
                                 <exclude reference="COA-ts-ofO"/>
                                 <include reference="Uqg-5f-Qtk"/>
                                 <exclude reference="gih-zr-sFX"/>
-                                <exclude reference="3nn-T5-bHV"/>
-                                <include reference="Kup-xm-GXQ"/>
-                                <exclude reference="Yda-gC-H8T"/>
-                                <exclude reference="uXi-tz-mIN"/>
                                 <include reference="0uW-Pu-cRO"/>
                                 <include reference="1wK-7O-6mg"/>
                                 <exclude reference="7a9-aN-frc"/>
@@ -159,6 +155,10 @@
                                 <exclude reference="cSF-IJ-yaU"/>
                                 <include reference="r4S-4E-vM8"/>
                                 <include reference="uXG-XR-aNN"/>
+                                <exclude reference="3nn-T5-bHV"/>
+                                <include reference="Kup-xm-GXQ"/>
+                                <exclude reference="Yda-gC-H8T"/>
+                                <exclude reference="uXi-tz-mIN"/>
                                 <include reference="Vn1-Bq-dVn"/>
                                 <exclude reference="WWe-i4-KER"/>
                                 <exclude reference="XAd-Di-5Yd"/>
@@ -174,6 +174,7 @@
                     <tabBarItem key="tabBarItem" title="New Reminder" id="BEW-x6-MwU"/>
                     <connections>
                         <outlet property="datePicker" destination="Who-uk-9Bf" id="YEQ-bm-Qbi"/>
+                        <outlet property="onlyOnThisLocation" destination="ajb-22-GrZ" id="sDr-7W-hok"/>
                         <outlet property="reminderText" destination="Bd8-V0-31m" id="WDz-TO-SdV"/>
                     </connections>
                 </viewController>
@@ -184,7 +185,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="265.81709145427288" y="1492"/>
+            <point key="canvasLocation" x="337" y="153"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="IXs-dZ-ZFg">
@@ -196,8 +197,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="kNG-uc-Teq" kind="relationship" relationship="viewControllers" id="8f7-cB-naU"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="23h-sV-gV1"/>
+                        <segue destination="kNG-uc-Teq" kind="relationship" relationship="viewControllers" id="44J-sN-Brw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3LI-GF-fce" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,11 +214,11 @@
                         <viewControllerLayoutGuide type="bottom" id="kjK-Zj-bya"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sDl-Op-0aM">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14B-nL-kUd">
-                                <rect key="frame" x="20" y="28" width="627" height="46"/>
+                                <rect key="frame" x="16" y="28" width="343" height="46"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Reminders">
                                         <attributes>
@@ -229,18 +230,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qXi-25-SPS">
-                                <rect key="frame" x="20" y="82" width="627" height="236"/>
+                                <rect key="frame" x="16" y="82" width="343" height="528"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="reminderCell" focusStyle="custom" textLabel="y0l-v3-hCL" style="IBUITableViewCellStyleDefault" id="fxC-HE-0Kp">
-                                        <rect key="frame" x="0.0" y="28" width="627" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxC-HE-0Kp" id="3Nd-eV-RH5">
-                                            <rect key="frame" x="0.0" y="0.0" width="594" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="textLabelForCell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y0l-v3-hCL">
-                                                    <rect key="frame" x="15" y="0.0" width="577" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="293" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -274,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYA-Zg-Kj1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="266.40625" y="287.6953125"/>
+            <point key="canvasLocation" x="367" y="1037"/>
         </scene>
         <!--Event Details View Controller-->
         <scene sceneID="5u2-1a-jHh">
@@ -285,14 +286,14 @@
                         <viewControllerLayoutGuide type="bottom" id="iyg-1o-I0Q"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZOi-MW-VPo">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQp-hL-T58" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1145" y="288"/>
+            <point key="canvasLocation" x="1185" y="1037"/>
         </scene>
     </scenes>
 </document>
