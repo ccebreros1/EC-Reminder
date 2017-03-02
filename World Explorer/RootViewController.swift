@@ -1,17 +1,16 @@
 //
-//  EventDetailsViewController.swift
+//  RootViewController.swift
 //  EC Reminder
 //
-//  Created by Cesar A Cebreros Lara on 2017-02-13.
+//  Created by Cesar A Cebreros Lara on 2017-03-02.
 //  Copyright © 2017 Cesar A Cebreros Lara. All rights reserved.
 //
 
 import UIKit
 
-class EventDetailsViewController: UIViewController {
+class RootViewController: UIViewController, UITableViewDelegate {
     
-    var reminderTitle: String?
-    
+    private var titles: [String]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,5 +33,6 @@ class EventDetailsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    }
 
-}

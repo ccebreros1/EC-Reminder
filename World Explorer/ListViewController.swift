@@ -28,6 +28,9 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
     let cellIdentifier = "reminderCell"
     //Outlet for the table view
     @IBOutlet weak var remindersTable: UITableView!
+    
+    //SegueIdentifier
+    let detailsSegueIdentifier = "showEventDetailsSegue"
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,6 +127,18 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
             DispatchQueue.main.async{
                 self.remindersTable.reloadData()
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) -> Void {
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
+        if segue.identifier == detailsSegueIdentifier
+        {
+            let indexPath = remindersTable.indexPath(for: sender as! UITableViewCell)!
+            let detailsVC = segue.destination as! EventDetailsViewController
+            let title = titles[indexPath.row]
+            detailsVC.reminderTitle = title
         }
     }
     
