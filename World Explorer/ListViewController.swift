@@ -70,6 +70,7 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
         })
         
     }
+    
     //SECTION FOR METHODS RELATED TO TABLE VIEW
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Get the number of total rows that the table view should create
@@ -92,6 +93,15 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
             //Return a cell that was created
             return cell!
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt
+        indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        performSegue(withIdentifier: detailsSegueIdentifier, sender: cell)
+    }
+
     
     //END OF SECTION FOR METHODS RELATED TO TABLE VIEW
     
@@ -141,6 +151,8 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
             detailsVC.reminderTitle = title
         }
     }
+    
+    @IBAction func unwindToMenu(_ segue: UIStoryboardSegue) {}
     
     //Private Functions
     

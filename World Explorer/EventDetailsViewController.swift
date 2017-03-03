@@ -10,12 +10,20 @@ import UIKit
 
 class EventDetailsViewController: UIViewController {
     
+    
     var reminderTitle: String?
+    
+    @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "backToList", sender: self)
+
+    }
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        titleLabel.text = reminderTitle
         // Do any additional setup after loading the view.
     }
 
