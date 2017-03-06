@@ -185,7 +185,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="337" y="153"/>
+            <point key="canvasLocation" x="759" y="-98"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="IXs-dZ-ZFg">
@@ -203,7 +203,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3LI-GF-fce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-549" y="500"/>
+            <point key="canvasLocation" x="-60" y="394"/>
         </scene>
         <!--View Reminders-->
         <scene sceneID="dd1-Dr-5a4">
@@ -237,11 +237,11 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxC-HE-0Kp" id="3Nd-eV-RH5">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="textLabelForCell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y0l-v3-hCL">
-                                                    <rect key="frame" x="15" y="0.0" width="293" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="293" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -271,11 +271,12 @@
                     <tabBarItem key="tabBarItem" title="View Reminders" id="x5W-GF-sYa"/>
                     <connections>
                         <outlet property="remindersTable" destination="qXi-25-SPS" id="0de-GP-9Xh"/>
+                        <segue destination="qWy-0O-sKq" kind="show" identifier="newReminderSegue" id="44E-mi-CWR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uYA-Zg-Kj1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="1037"/>
+            <point key="canvasLocation" x="-858" y="1154"/>
         </scene>
         <!--Event Details View Controller-->
         <scene sceneID="5u2-1a-jHh">
@@ -321,7 +322,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQp-hL-T58" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kmh-fy-01h" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1184.8" y="1036.7316341829087"/>
+            <point key="canvasLocation" x="322" y="1185"/>
         </scene>
     </scenes>
 </document>

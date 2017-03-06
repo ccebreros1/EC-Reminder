@@ -31,6 +31,7 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
     
     //SegueIdentifier
     let detailsSegueIdentifier = "showEventDetailsSegue"
+    let newReminderSegueIdentifier = "newReminderSegue"
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +99,7 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
         indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        //Change screen to the details view
         performSegue(withIdentifier: detailsSegueIdentifier, sender: cell)
     }
 
@@ -135,11 +136,24 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
             }
             //Re-load the table view
             DispatchQueue.main.async{
-                self.remindersTable.reloadData()
+                //Check for no reminders in device
+                if self.titles.count == 0
+                {
+                    let controller = UIAlertController(title: "No reminders available", message: "There are no reminders on your phone, please set up a reminder first", preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: {(action:UIAlertAction!)-> Void in self.performSegue(withIdentifier: self.newReminderSegueIdentifier, sender: self)})
+                    controller.addAction(cancelAction)
+                    self.present(controller, animated: true, completion: nil)
+                    
+                }
+                //There are reminders in device
+                else
+                {
+                    self.remindersTable.reloadData()
+                }
             }
         }
     }
-    
+    //Prepare for segue to change screens
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) -> Void {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
