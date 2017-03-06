@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import EventKit
 
 class EventDetailsViewController: UIViewController {
     
-    
+    var datePicker: UIDatePicker!
+    var reminder: EKReminder!
+    var eventStore: EKEventStore!
     var reminderTitle: String?
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
@@ -19,11 +22,15 @@ class EventDetailsViewController: UIViewController {
     }
     
     @IBOutlet weak var titleLabel: UILabel!
+    var eventId: String!
+    var remindersUrl = "x-apple-reminder://"
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = reminderTitle
+        //var remiderUrl = NSURL(remindersUrl += eventId)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -32,6 +39,9 @@ class EventDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //@IBAction func viewInRemindersApp(_ sender: UIButton) {
+        //UIApplication.shared.open(reminderUrl, options: [:], completionHandler: nil)
+    //}
 
     /*
     // MARK: - Navigation
