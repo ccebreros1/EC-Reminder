@@ -352,6 +352,8 @@
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="dateInfoLabel" destination="br1-mu-AQo" id="KMJ-HS-zwt"/>
+                        <outlet property="locationInfoLabel" destination="Nso-Ie-jwh" id="tyK-cB-nE2"/>
                         <outlet property="titleLabel" destination="6n6-jD-lFH" id="tzS-ti-aTM"/>
                         <segue destination="kmh-fy-01h" kind="unwind" identifier="backToList" unwindAction="unwindToMenu:" id="mE3-TB-4iz"/>
                     </connections>

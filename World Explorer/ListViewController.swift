@@ -24,6 +24,10 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
     var reminders: [EKReminder]!
     //Create a varaible for an array of titles
     var titles : [String] = []
+    //Create array foir ids
+    var ids : [String] = []
+    //Create reminder to pass in
+    var reminderForSegue : EKReminder!
     //Create a constant for a cell identifiker of the table view
     let cellIdentifier = "reminderCell"
     //Outlet for the table view
@@ -99,6 +103,7 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
         indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
+        self.reminderForSegue = self.reminders[indexPath.row]
         //Change screen to the details view
         performSegue(withIdentifier: detailsSegueIdentifier, sender: cell)
     }
@@ -133,6 +138,7 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
             {
                 //add the title to the array of titles
                 self.titles.append(reminder.title)
+                self.ids.append(reminder.calendarItemIdentifier)
             }
             //Re-load the table view
             DispatchQueue.main.async{
@@ -161,8 +167,14 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
         {
             let indexPath = remindersTable.indexPath(for: sender as! UITableViewCell)!
             let detailsVC = segue.destination as! EventDetailsViewController
+            detailsVC.eventStore = eventStore
             let title = titles[indexPath.row]
             detailsVC.reminderTitle = title
+            let currentUrl = ids[indexPath.row]
+            detailsVC.eventId = currentUrl
+            let currentReminder = reminderForSegue
+            detailsVC.reminder = currentReminder
+            
         }
     }
     
@@ -179,6 +191,7 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
                 .filter{!$0.isCompleted}
                 .sorted{($0.creationDate ?? Date.distantPast) < ($1.creationDate ?? Date.distantPast)}
             completion(reminders1 ?? [])
+            self.reminders = reminders
             //Debugging only
             print(String(describing: reminders1))
         }

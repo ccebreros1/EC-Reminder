@@ -8,6 +8,7 @@
 
 import UIKit
 import EventKit
+import Foundation
 
 class EventDetailsViewController: UIViewController {
     
@@ -15,6 +16,10 @@ class EventDetailsViewController: UIViewController {
     var reminder: EKReminder!
     var eventStore: EKEventStore!
     var reminderTitle: String?
+    @IBOutlet weak var dateInfoLabel: UILabel!
+    @IBOutlet weak var locationInfoLabel: UILabel!
+
+    //var reminderUrl : URL!
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "backToList", sender: self)
@@ -25,11 +30,12 @@ class EventDetailsViewController: UIViewController {
     var eventId: String!
     var remindersUrl = "x-apple-reminder://"
     
-
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = reminderTitle
-        //var remiderUrl = NSURL(remindersUrl += eventId)
+        dateInfoLabel.text = String (describing: reminder.dueDateComponents?.date)
+        locationInfoLabel.text = reminder.location
         
         // Do any additional setup after loading the view.
     }
@@ -39,9 +45,12 @@ class EventDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //@IBAction func viewInRemindersApp(_ sender: UIButton) {
-        //UIApplication.shared.open(reminderUrl, options: [:], completionHandler: nil)
-    //}
+    @IBAction func viewInRemindersApp(_ sender: UIButton) {
+        let concatenation : String = remindersUrl + eventId
+        let stringUrl: NSString = concatenation as NSString
+        let reminderURL = URL(string: stringUrl as String)
+        UIApplication.shared.open(reminderURL!, options: [:], completionHandler: nil)
+    }
 
     /*
     // MARK: - Navigation
