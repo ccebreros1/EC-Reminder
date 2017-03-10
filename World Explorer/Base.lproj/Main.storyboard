@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qWy-0O-sKq">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of reminder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bd8-V0-31m">
-                                <rect key="frame" x="16" y="75" width="343" height="30"/>
+                                <rect key="frame" x="20" y="75" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="mOm-yd-EYd"/>
                                 </constraints>
@@ -35,13 +35,13 @@
                                 </connections>
                             </textField>
                             <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Who-uk-9Bf">
-                                <rect key="frame" x="0.0" y="251" width="375" height="98"/>
+                                <rect key="frame" x="0.0" y="251" width="383" height="167"/>
                                 <date key="date" timeIntervalSinceReferenceDate="506886463.65884697">
                                     <!--2017-01-23 17:47:43 +0000-->
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only on this location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dSc-wW-BEg">
-                                <rect key="frame" x="16" y="447" width="247" height="39"/>
+                                <rect key="frame" x="20" y="516" width="278" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="Iok-eF-aRg"/>
                                 </constraints>
@@ -50,14 +50,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVL-cu-0M9">
-                                <rect key="frame" x="16" y="134" width="343" height="30"/>
+                                <rect key="frame" x="20" y="134" width="343" height="30"/>
                                 <state key="normal" title="Set Reminder"/>
                                 <connections>
                                     <action selector="setReminder:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YsO-rt-vBU"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ajb-22-GrZ">
-                                <rect key="frame" x="310" y="451" width="51" height="31"/>
+                                <rect key="frame" x="345" y="520" width="51" height="31"/>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -214,11 +214,11 @@
                         <viewControllerLayoutGuide type="bottom" id="kjK-Zj-bya"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sDl-Op-0aM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14B-nL-kUd">
-                                <rect key="frame" x="16" y="28" width="343" height="46"/>
+                                <rect key="frame" x="20" y="28" width="374" height="46"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Reminders">
                                         <attributes>
@@ -230,18 +230,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qXi-25-SPS">
-                                <rect key="frame" x="16" y="82" width="343" height="528"/>
+                                <rect key="frame" x="20" y="82" width="374" height="597"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="reminderCell" focusStyle="custom" textLabel="y0l-v3-hCL" style="IBUITableViewCellStyleDefault" id="fxC-HE-0Kp">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxC-HE-0Kp" id="3Nd-eV-RH5">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="textLabelForCell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y0l-v3-hCL">
-                                                    <rect key="frame" x="15" y="0.0" width="293" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="324" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -287,12 +287,24 @@
                         <viewControllerLayoutGuide type="bottom" id="iyg-1o-I0Q"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZOi-MW-VPo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1k0-X1-oTp">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwT-02-tsS">
+                                <rect key="frame" x="112" y="577" width="191" height="30"/>
+                                <state key="normal" title="See in Reminders App"/>
+                                <connections>
+                                    <action selector="viewInRemindersApp:" destination="fN1-gD-j4J" eventType="touchUpInside" id="4Tc-5l-ROA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ReminderTitle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6n6-jD-lFH">
+                                <rect key="frame" x="85" y="124" width="252" height="36"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1k0-X1-oTp">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Reminder Details" id="UQ9-mg-yuP">
                                         <barButtonItem key="leftBarButtonItem" image="backButton" width="20" id="X5K-ng-OwM">
@@ -304,56 +316,102 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWR-6b-gqY">
-                                <rect key="frame" x="16" y="146" width="70" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gSo-2L-s5O">
+                                <rect key="frame" x="116" y="217" width="255" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="510855147.485403">
+                                    <!--2017-03-10 16:12:27 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWR-6b-gqY">
+                                <rect key="frame" x="37" y="314" width="44" height="23"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huP-in-cCX">
-                                <rect key="frame" x="16" y="201" width="84" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is the space for the date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="br1-mu-AQo">
-                                <rect key="frame" x="115" y="147" width="244" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Anywhere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nso-Ie-jwh">
-                                <rect key="frame" x="115" y="202" width="244" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwT-02-tsS">
-                                <rect key="frame" x="112" y="307" width="151" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="See in Reminders App"/>
-                                <connections>
-                                    <action selector="viewInRemindersApp:" destination="fN1-gD-j4J" eventType="touchUpInside" id="4Tc-5l-ROA"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ReminderTitle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6n6-jD-lFH">
-                                <rect key="frame" x="81" y="85" width="212" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iyg-1o-I0Q" firstAttribute="top" secondItem="rwT-02-tsS" secondAttribute="bottom" constant="104" id="07r-EF-cuO"/>
+                            <constraint firstItem="rwT-02-tsS" firstAttribute="top" secondItem="gSo-2L-s5O" secondAttribute="bottom" constant="144" id="0Cb-Go-un3"/>
+                            <constraint firstItem="6n6-jD-lFH" firstAttribute="leading" secondItem="ZOi-MW-VPo" secondAttribute="leadingMargin" constant="65" id="1xv-w7-9Ma"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6n6-jD-lFH" secondAttribute="trailing" constant="57" id="35R-mm-9ZA"/>
+                            <constraint firstItem="1k0-X1-oTp" firstAttribute="top" secondItem="Dht-5y-hh9" secondAttribute="bottom" constant="8" id="3rs-7D-Plk"/>
+                            <constraint firstItem="1k0-X1-oTp" firstAttribute="leading" secondItem="ZOi-MW-VPo" secondAttribute="leadingMargin" constant="-20" id="DAx-xR-GFJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1k0-X1-oTp" secondAttribute="trailing" constant="-20" id="DLb-t1-rO7"/>
+                            <constraint firstItem="GWR-6b-gqY" firstAttribute="top" secondItem="6n6-jD-lFH" secondAttribute="bottom" constant="154" id="DgN-Vz-Jsn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rwT-02-tsS" secondAttribute="trailing" constant="87" id="Kw4-7i-lyN"/>
+                            <constraint firstItem="iyg-1o-I0Q" firstAttribute="top" secondItem="rwT-02-tsS" secondAttribute="bottom" constant="80" id="N04-fj-bo0"/>
+                            <constraint firstItem="gSo-2L-s5O" firstAttribute="top" secondItem="6n6-jD-lFH" secondAttribute="bottom" constant="199" id="OXD-Bo-c7E"/>
+                            <constraint firstItem="rwT-02-tsS" firstAttribute="top" secondItem="GWR-6b-gqY" secondAttribute="bottom" constant="240" id="Pp1-UL-zEG"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="GWR-6b-gqY" secondAttribute="leading" id="T0n-ax-b6g"/>
+                            <constraint firstItem="6n6-jD-lFH" firstAttribute="top" secondItem="Dht-5y-hh9" secondAttribute="bottom" constant="104" id="VJU-y3-cbe"/>
+                            <constraint firstItem="rwT-02-tsS" firstAttribute="leading" secondItem="ZOi-MW-VPo" secondAttribute="leadingMargin" constant="96" id="VQ4-4W-ssI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gSo-2L-s5O" secondAttribute="trailing" constant="31" id="Yrb-NM-xaW"/>
+                            <constraint firstItem="6n6-jD-lFH" firstAttribute="leading" secondItem="ZOi-MW-VPo" secondAttribute="leadingMargin" constant="65" id="aP0-eT-PIC"/>
+                            <constraint firstItem="gSo-2L-s5O" firstAttribute="leading" secondItem="GWR-6b-gqY" secondAttribute="trailing" constant="44" id="eHU-Le-BXx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6n6-jD-lFH" secondAttribute="trailing" constant="57" id="eNZ-cA-9K9"/>
+                            <constraint firstItem="6n6-jD-lFH" firstAttribute="top" secondItem="1k0-X1-oTp" secondAttribute="bottom" constant="52" id="gxM-9c-1Hp"/>
+                            <constraint firstItem="rwT-02-tsS" firstAttribute="leading" secondItem="ZOi-MW-VPo" secondAttribute="leadingMargin" constant="92" id="jQa-MQ-tQg"/>
+                            <constraint firstItem="GWR-6b-gqY" firstAttribute="leading" secondItem="ZOi-MW-VPo" secondAttribute="leadingMargin" constant="17" id="mLI-QE-hyT"/>
+                            <constraint firstItem="GWR-6b-gqY" firstAttribute="top" secondItem="6n6-jD-lFH" secondAttribute="bottom" constant="296" id="mO0-ao-L73"/>
+                            <constraint firstItem="iyg-1o-I0Q" firstAttribute="top" secondItem="1k0-X1-oTp" secondAttribute="bottom" constant="615" id="n3d-rE-2MQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GWR-6b-gqY" secondAttribute="trailing" constant="313" id="oBm-bl-e32"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gSo-2L-s5O" secondAttribute="trailing" constant="23" id="pKA-6a-uzk"/>
+                            <constraint firstItem="rwT-02-tsS" firstAttribute="top" secondItem="gSo-2L-s5O" secondAttribute="bottom" constant="266" id="qm7-Hl-Akh"/>
+                            <constraint firstItem="gSo-2L-s5O" firstAttribute="top" secondItem="6n6-jD-lFH" secondAttribute="bottom" constant="57" id="rr1-4q-cpF"/>
+                            <constraint firstItem="gSo-2L-s5O" firstAttribute="leading" secondItem="ZOi-MW-VPo" secondAttribute="leadingMargin" constant="96" id="tBd-zm-iZ7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rwT-02-tsS" secondAttribute="trailing" constant="91" id="xLG-qI-GWI"/>
+                        </constraints>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="1xv-w7-9Ma"/>
+                                <exclude reference="35R-mm-9ZA"/>
+                                <exclude reference="VJU-y3-cbe"/>
+                                <exclude reference="aP0-eT-PIC"/>
+                                <include reference="eNZ-cA-9K9"/>
+                                <exclude reference="OXD-Bo-c7E"/>
+                                <exclude reference="Yrb-NM-xaW"/>
+                                <exclude reference="eHU-Le-BXx"/>
+                                <include reference="pKA-6a-uzk"/>
+                                <include reference="rr1-4q-cpF"/>
+                                <include reference="tBd-zm-iZ7"/>
+                                <include reference="DgN-Vz-Jsn"/>
+                                <exclude reference="T0n-ax-b6g"/>
+                                <include reference="mLI-QE-hyT"/>
+                                <exclude reference="mO0-ao-L73"/>
+                                <include reference="oBm-bl-e32"/>
+                                <include reference="0Cb-Go-un3"/>
+                                <exclude reference="Kw4-7i-lyN"/>
+                                <include reference="Pp1-UL-zEG"/>
+                                <exclude reference="VQ4-4W-ssI"/>
+                                <include reference="jQa-MQ-tQg"/>
+                                <exclude reference="qm7-Hl-Akh"/>
+                                <include reference="xLG-qI-GWI"/>
+                                <exclude reference="07r-EF-cuO"/>
+                                <include reference="N04-fj-bo0"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="1xv-w7-9Ma"/>
+                                <exclude reference="eNZ-cA-9K9"/>
+                                <exclude reference="pKA-6a-uzk"/>
+                                <exclude reference="rr1-4q-cpF"/>
+                                <exclude reference="tBd-zm-iZ7"/>
+                                <exclude reference="DgN-Vz-Jsn"/>
+                                <exclude reference="mLI-QE-hyT"/>
+                                <exclude reference="oBm-bl-e32"/>
+                                <exclude reference="0Cb-Go-un3"/>
+                                <exclude reference="Pp1-UL-zEG"/>
+                                <exclude reference="jQa-MQ-tQg"/>
+                                <exclude reference="xLG-qI-GWI"/>
+                                <exclude reference="N04-fj-bo0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <connections>
-                        <outlet property="dateInfoLabel" destination="br1-mu-AQo" id="KMJ-HS-zwt"/>
-                        <outlet property="locationInfoLabel" destination="Nso-Ie-jwh" id="tyK-cB-nE2"/>
+                        <outlet property="dateInfoPicker" destination="gSo-2L-s5O" id="Jlo-1K-zTl"/>
                         <outlet property="titleLabel" destination="6n6-jD-lFH" id="tzS-ti-aTM"/>
                         <segue destination="kmh-fy-01h" kind="unwind" identifier="backToList" unwindAction="unwindToMenu:" id="mE3-TB-4iz"/>
                     </connections>
@@ -361,7 +419,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQp-hL-T58" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kmh-fy-01h" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="320.80000000000001" y="1184.257871064468"/>
+            <point key="canvasLocation" x="320.3125" y="1184.1796875"/>
         </scene>
     </scenes>
     <resources>

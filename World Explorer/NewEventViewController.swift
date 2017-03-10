@@ -83,12 +83,12 @@ class NewEventViewController: UIViewController {
         reminder.calendar =
             appDelegate.eventStore!.defaultCalendarForNewReminders()
         let date = datePicker.date
+        //let alarmDate = datePicker.date.addingTimeInterval(60)
         let alarm = EKAlarm(absoluteDate: date)
-        let components = datePicker.calendar.dateComponents([.day, .month, .year, .hour], from: datePicker.date)
-        reminder.dueDateComponents? = components
-        
+        let components = appDelegate.dateComponentFromNSDate(date: date as NSDate)
+        reminder.dueDateComponents = components as DateComponents
         reminder.addAlarm(alarm)
-        
+        print (String(describing: components))
         do {
             try appDelegate.eventStore?.save(reminder,
                                              commit: true)

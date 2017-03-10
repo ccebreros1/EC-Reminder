@@ -5,6 +5,8 @@
 //  Created by Cesar A Cebreros Lara on 2017-02-13.
 //  Copyright © 2017 Cesar A Cebreros Lara. All rights reserved.
 //
+//The expandable table view was done taking pieces of code from http://www.appcoda.com/expandable-table-view/
+// Added some functionality from the book 
 
 import UIKit
 import EventKit
@@ -16,7 +18,7 @@ class EventDetailsViewController: UIViewController {
     var reminder: EKReminder!
     var eventStore: EKEventStore!
     var reminderTitle: String?
-    @IBOutlet weak var dateInfoLabel: UILabel!
+    @IBOutlet weak var dateInfoPicker: UIDatePicker!
     @IBOutlet weak var locationInfoLabel: UILabel!
 
     //var reminderUrl : URL!
@@ -34,7 +36,7 @@ class EventDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = reminderTitle
-        dateInfoLabel.text = String (describing: reminder.dueDateComponents?.date)
+        dateInfoPicker.date = (reminder.dueDateComponents?.date)!
         locationInfoLabel.text = reminder.location
         
         // Do any additional setup after loading the view.
