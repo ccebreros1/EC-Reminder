@@ -14,6 +14,9 @@
 		8E362B8E1E326405000D6E8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E362B8C1E326405000D6E8F /* Main.storyboard */; };
 		8E362B901E326405000D6E8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E362B8F1E326405000D6E8F /* Assets.xcassets */; };
 		8E362B931E326405000D6E8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E362B911E326405000D6E8F /* LaunchScreen.storyboard */; };
+		8E3C0B731E7AF3FC0092F22C /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C0B721E7AF3FC0092F22C /* DatePickerCell.xib */; };
+		8E3C0B751E7AF44A0092F22C /* dateDueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C0B741E7AF44A0092F22C /* dateDueCell.xib */; };
+		8E3C0B771E7AF4940092F22C /* locationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3C0B761E7AF4940092F22C /* locationCell.xib */; };
 		8E5608AB1E68913A00631FC5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5608AA1E68913A00631FC5 /* RootViewController.swift */; };
 		8E6D16BE1E77087F006A4C05 /* TableViewCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6D16BD1E77087F006A4C05 /* TableViewCellViewController.swift */; };
 		8E9A9BF91E5231DF003F8E75 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A9BF81E5231DF003F8E75 /* EventDetailsViewController.swift */; };
@@ -29,6 +32,9 @@
 		8E362B8F1E326405000D6E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E362B921E326405000D6E8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E362B941E326405000D6E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E3C0B721E7AF3FC0092F22C /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
+		8E3C0B741E7AF44A0092F22C /* dateDueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = dateDueCell.xib; sourceTree = "<group>"; };
+		8E3C0B761E7AF4940092F22C /* locationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = locationCell.xib; sourceTree = "<group>"; };
 		8E5608AA1E68913A00631FC5 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8E6D16BD1E77087F006A4C05 /* TableViewCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellViewController.swift; sourceTree = "<group>"; };
 		8E9A9BF81E5231DF003F8E75 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +70,7 @@
 		8E362B871E326405000D6E8F /* World Explorer */ = {
 			isa = PBXGroup;
 			children = (
+				8E3C0B711E7AF3A50092F22C /* Cells */,
 				8E362B881E326405000D6E8F /* AppDelegate.swift */,
 				8E362B8C1E326405000D6E8F /* Main.storyboard */,
 				8E362B8F1E326405000D6E8F /* Assets.xcassets */,
@@ -77,6 +84,16 @@
 				8E6D16BD1E77087F006A4C05 /* TableViewCellViewController.swift */,
 			);
 			path = "World Explorer";
+			sourceTree = "<group>";
+		};
+		8E3C0B711E7AF3A50092F22C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8E3C0B721E7AF3FC0092F22C /* DatePickerCell.xib */,
+				8E3C0B741E7AF44A0092F22C /* dateDueCell.xib */,
+				8E3C0B761E7AF4940092F22C /* locationCell.xib */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +158,10 @@
 			files = (
 				8E362B931E326405000D6E8F /* LaunchScreen.storyboard in Resources */,
 				8E362B901E326405000D6E8F /* Assets.xcassets in Resources */,
+				8E3C0B751E7AF44A0092F22C /* dateDueCell.xib in Resources */,
 				8E362B8E1E326405000D6E8F /* Main.storyboard in Resources */,
+				8E3C0B771E7AF4940092F22C /* locationCell.xib in Resources */,
+				8E3C0B731E7AF3FC0092F22C /* DatePickerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

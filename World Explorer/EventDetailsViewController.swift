@@ -18,8 +18,14 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
     var reminder: EKReminder!
     var eventStore: EKEventStore!
     var reminderTitle: String?
-    var tableViewCell:TableViewCellViewController? = nil
-    let dateCellIdentifier = "dateDueCell"
+    //var tableViewCell:TableViewCellViewController? = nil
+    let dateDueCellIdentifier = "dateDueCell"
+    let datePickerCellIdentifier = "datePickerCell"
+    let locationCellIdentifier = "locationCell"
+    
+    var datePicker1 = TableViewCellViewController.sharingInstance.datePicker
+    var dateLabel1 = TableViewCellViewController.sharingInstance.dateLabel
+    var locationLabel1 = TableViewCellViewController.sharingInstance.locationLabel
     //var reminderUrl : URL!
     @IBOutlet weak var detailsTable: UITableView!
     
@@ -35,17 +41,26 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableViewCell? = TableViewCellViewController()
-        titleLabel.text = reminderTitle
-        tableViewCell?.datePicker.date = (reminder.dueDateComponents?.date)!
-        tableViewCell?.locationLabel.text = reminder.location
-        //dateCellIdentifier.isHidden = true;
         
+        titleLabel.text = reminder.title
+
         // Do any additional setup after loading the view.
-        // Do any additional setup after loading the view.
+        let datePickerNib = UINib(nibName: "DatePickerCell", bundle: nil)
+        let dateDueNib = UINib(nibName: "dateDueCell", bundle: nil)
+        let locationNib = UINib(nibName: "locationCell", bundle: nil)
         detailsTable.dataSource = self
         detailsTable.delegate = self
-        detailsTable.register(UITableViewCell.self, forCellReuseIdentifier: dateCellIdentifier)
+        detailsTable.register(dateDueNib, forCellReuseIdentifier: dateDueCellIdentifier)
+        detailsTable.register(datePickerNib, forCellReuseIdentifier: datePickerCellIdentifier)
+        detailsTable.register(locationNib, forCellReuseIdentifier: locationCellIdentifier)
+        let cell1 = detailsTable.dequeueReusableCell(withIdentifier: datePickerCellIdentifier)
+        cell1?.isHidden = true
+        dateLabel1?.text = String(describing: reminder.dueDateComponents?.date)
+        datePicker1?.date = (reminder.dueDateComponents?.date)!
+        locationLabel1?.text = reminder.location
+
+
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +78,10 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
     
     //SECTION FOR METHODS RELATED TO TABLE VIEW
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Get the number of total rows that the table view should create
         return 3
@@ -72,24 +91,38 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
         UITableViewCell {
             //Create a cell
-            var cell = tableView.dequeueReusableCell(withIdentifier: dateCellIdentifier)
-            if (cell == nil) {
-                cell = UITableViewCell(
-                    style: UITableViewCellStyle.default,
-                    reuseIdentifier: dateCellIdentifier)
-            }
-            //Add the label of the row
-            cell?.accessoryType = .detailButton
-            cell?.textLabel?.text = "Hello"
+            if indexPath.row == 0
+            {
+                //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: dateDueCellIdentifier)
+            let cell1 = tableView.dequeueReusableCell(withIdentifier: dateDueCellIdentifier)
+            cell1?.accessoryType = .detailButton
+            
+            //cell1?.
             //Return a cell that was created
-            return cell!
+            return cell1!
+            }
+            else if indexPath.row == 1 {
+                //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: datePickerCellIdentifier)
+                let cell1 = tableView.dequeueReusableCell(withIdentifier: datePickerCellIdentifier)
+                cell1?.isHidden = true
+                
+                //set the data here
+                return cell1!
+            }
+            else {
+                //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: locationCellIdentifier)
+                let cell1 = tableView.dequeueReusableCell(withIdentifier: locationCellIdentifier)
+                
+                //set the data here
+                return cell1!
+            }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt
         indexPath: IndexPath) {
         if indexPath.section == 0
         {
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: dateCellIdentifier)
+            let cell1 = tableView.dequeueReusableCell(withIdentifier: datePickerCellIdentifier)
             cell1?.isHidden = false
         }
         tableView.deselectRow(at: indexPath, animated: true)

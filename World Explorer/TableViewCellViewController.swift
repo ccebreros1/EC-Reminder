@@ -14,4 +14,6 @@ class TableViewCellViewController: UITableViewCell {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var locationLabel: UILabel!
     
+    static let sharingInstance = TableViewCellViewController()
+    
 }
