@@ -16,4 +16,21 @@ class TableViewCellViewController: UITableViewCell {
     
     static let sharingInstance = TableViewCellViewController()
     
+    @IBOutlet weak var HeightConstraint: NSLayoutConstraint!
+    
+    
+    var isExpanded:Bool = false
+        {
+        didSet
+        {
+            if !isExpanded {
+                self.HeightConstraint.constant = 0.0
+                
+            } else {
+                self.HeightConstraint.constant = 128.0
+            }
+        }
+    }
+
+    
 }

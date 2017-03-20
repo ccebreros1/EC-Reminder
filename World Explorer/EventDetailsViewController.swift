@@ -80,6 +80,16 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
         //Get the number of total rows that the table view should create
         return 3
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        let section = indexPath.section
+        let row = indexPath.row
+        if section == 0 && row == 1{
+            return 100
+        }
+        return UITableViewAutomaticDimension
+    }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
@@ -105,7 +115,7 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
             else if indexPath.row == 1 {
                 //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: datePickerCellIdentifier)
                 let cell1 = tableView.dequeueReusableCell(withIdentifier: datePickerCellIdentifier)as! TableViewCellViewController
-                cell1.isHidden = true
+                cell1.isHidden = false
                 cell1.datePicker.date = (reminder.dueDateComponents?.date)!
             
                 
@@ -125,11 +135,15 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt
         indexPath: IndexPath) {
         
-        if indexPath.row == 0
+        let section = indexPath.section
+        let row = indexPath.row
+        if section == 0 && row == 0
         {
-            //cell2?.isHidden = false
             tableView.beginUpdates()
+            let cell1 = tableView.dequeueReusableCell(withIdentifier: datePickerCellIdentifier)as! TableViewCellViewController
+            cell1.isHidden = false
             tableView.endUpdates()
+            tableView.reloadData()
         }
         tableView.deselectRow(at: indexPath, animated: true)
 
