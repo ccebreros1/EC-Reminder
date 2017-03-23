@@ -18,7 +18,9 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
     var reminder: EKReminder!
     var eventStore: EKEventStore!
     var reminderTitle: String?
-    //var tableViewCell:TableViewCellViewController? = nil
+    //This is for allowing access to reminders and calendar apps on iOS
+    let appDelegate = UIApplication.shared.delegate
+        as! AppDelegate
     let dateDueCellIdentifier = "dateDueCell"
     let datePickerCellIdentifier = "datePickerCell"
     let locationCellIdentifier = "locationCell"
@@ -70,6 +72,23 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
         UIApplication.shared.open(reminderURL!, options: [:], completionHandler: nil)
     }
     
+    @IBAction func saveChanges(_ sender: UIButton) {
+        
+        let cell = detailsTable.dequeueReusableCell(withIdentifier: datePickerCellIdentifier) as! TableViewCellViewController
+        let date = cell.datePicker.date
+        let alarm = EKAlarm(absoluteDate: date)
+        let components = appDelegate.dateComponentFromNSDate(date: date as NSDate)
+        do {
+            reminder.dueDateComponents = components as DateComponents
+            reminder.addAlarm(alarm)
+            try eventStore.save(reminder, commit: true)
+            print(String(describing: reminder))
+            detailsTable.reloadData()
+        }catch{
+            print("Error saving reminder : \(error)")
+        }
+        
+    }
     //SECTION FOR METHODS RELATED TO TABLE VIEW
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
