@@ -11,30 +11,30 @@
 import UIKit
 import EventKit
 import Foundation
+import MapKit
 
-class EventDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-    
-    var datePicker: UIDatePicker!
+class EventDetailsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
+
+    //Reminders stuff
     var reminder: EKReminder!
     var eventStore: EKEventStore!
     var reminderTitle: String?
     //This is for allowing access to reminders and calendar apps on iOS
     let appDelegate = UIApplication.shared.delegate
         as! AppDelegate
-    let dateDueCellIdentifier = "dateDueCell"
-    let datePickerCellIdentifier = "datePickerCell"
-    let locationCellIdentifier = "locationCell"
     
-    var datePicker1 = TableViewCellViewController.sharingInstance.datePicker
-    var dateLabel1 = TableViewCellViewController.sharingInstance.dateLabel
-    var locationLabel1 = TableViewCellViewController.sharingInstance.locationLabel
+    //Outlets
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var map: MKMapView!
+    
+    //Maps stuff
+     var locationManager:CLLocationManager!
     
     //URL For oppening reminders app
     @IBOutlet weak var titleLabel: UILabel!
     var eventId: String!
     var remindersUrl = "x-apple-reminder://"
     
-    @IBOutlet weak var detailsTable: UITableView!
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "backToList", sender: self)
@@ -45,18 +45,12 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if(reminder.location?.isEmpty)!
+        {
+            determineCurrentLocation()
+        }
+        datePicker.date = (reminder.dueDateComponents?.date)!
         titleLabel.text = reminder.title
-
-        // Do any additional setup after loading the view.
-        let datePickerNib = UINib(nibName: "DatePickerCell", bundle: nil)
-        let dateDueNib = UINib(nibName: "dateDueCell", bundle: nil)
-        let locationNib = UINib(nibName: "locationCell", bundle: nil)
-        detailsTable.dataSource = self
-        detailsTable.delegate = self
-        detailsTable.register(dateDueNib, forCellReuseIdentifier: dateDueCellIdentifier)
-        detailsTable.register(datePickerNib, forCellReuseIdentifier: datePickerCellIdentifier)
-        detailsTable.register(locationNib, forCellReuseIdentifier: locationCellIdentifier)
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,102 +68,59 @@ class EventDetailsViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBAction func saveChanges(_ sender: UIButton) {
         
-        let cell = detailsTable.dequeueReusableCell(withIdentifier: datePickerCellIdentifier) as! TableViewCellViewController
-        let date = cell.datePicker.date
+        let date = datePicker.date
         let alarm = EKAlarm(absoluteDate: date)
         let components = appDelegate.dateComponentFromNSDate(date: date as NSDate)
         do {
             reminder.dueDateComponents = components as DateComponents
             reminder.addAlarm(alarm)
             try eventStore.save(reminder, commit: true)
+            self.reloadInputViews()
             print(String(describing: reminder))
-            detailsTable.reloadData()
         }catch{
             print("Error saving reminder : \(error)")
         }
         
     }
-    //SECTION FOR METHODS RELATED TO TABLE VIEW
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
+    //Map stuff
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //Get the number of total rows that the table view should create
-        return 3
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    func determineCurrentLocation()
     {
-        let section = indexPath.section
-        let row = indexPath.row
-        if section == 0 && row == 1{
-            return 100
-        }
-        return UITableViewAutomaticDimension
-    }
-
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
-        UITableViewCell {
-            //Create a cell
-            if indexPath.row == 0
-            {
-                //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: dateDueCellIdentifier)
-                let cell1 = tableView.dequeueReusableCell(withIdentifier: dateDueCellIdentifier) as! TableViewCellViewController
-                cell1.accessoryType = .detailButton
-                let datevalue = reminder.dueDateComponents?.date!
-                let dateFormatter = DateFormatter()
-                dateFormatter.timeStyle = .none
-                dateFormatter.dateStyle = .medium
-                
-                let dateLabelTextF = dateFormatter.string(from: datevalue!)
-                cell1.dateLabel.text = dateLabelTextF
-            
-            //cell1?.
-            //Return a cell that was created
-            return cell1
-            }
-            else if indexPath.row == 1 {
-                //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: datePickerCellIdentifier)
-                let cell1 = tableView.dequeueReusableCell(withIdentifier: datePickerCellIdentifier)as! TableViewCellViewController
-                cell1.isHidden = false
-                cell1.datePicker.date = (reminder.dueDateComponents?.date)!
-            
-                
-                //set the data here
-                return cell1
-            }
-            else {
-                //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: locationCellIdentifier)
-                let cell1 = tableView.dequeueReusableCell(withIdentifier: locationCellIdentifier) as! TableViewCellViewController
-                cell1.locationLabel.text = reminder.location
-                
-                //set the data here
-                return cell1
-            }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt
-        indexPath: IndexPath) {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
         
-        let section = indexPath.section
-        let row = indexPath.row
-        if section == 0 && row == 0
-        {
-            tableView.beginUpdates()
-            let cell1 = tableView.dequeueReusableCell(withIdentifier: datePickerCellIdentifier)as! TableViewCellViewController
-            cell1.isHidden = false
-            tableView.endUpdates()
-            tableView.reloadData()
+        if CLLocationManager.locationServicesEnabled() {
+            //locationManager.startUpdatingHeading()
+            locationManager.startUpdatingLocation()
         }
-        tableView.deselectRow(at: indexPath, animated: true)
-
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation:CLLocation = locations[0] as CLLocation
+        
+        // Call stopUpdatingLocation() to stop listening for location updates,
+        // other wise this function will be called every time when user location changes.
+        //manager.stopUpdatingLocation()
+        
+        let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        
+        map.setRegion(region, animated: true)
+        
+        // Drop a pin at user's Current Location
+        let myAnnotation: MKPointAnnotation = MKPointAnnotation()
+        myAnnotation.coordinate = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude);
+        myAnnotation.title = "Remind on"
+        map.addAnnotation(myAnnotation)
+    }
     
-    //END OF SECTION FOR METHODS RELATED TO TABLE VIEW
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
+    {
+        print("Error \(error)")
+    }
 
 
 }

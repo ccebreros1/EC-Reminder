@@ -107,6 +107,37 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
         //Change screen to the details view
         performSegue(withIdentifier: detailsSegueIdentifier, sender: cell)
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            let reminder: EKReminder = reminders[indexPath.row]
+            do{
+                try eventStore.remove(reminder, commit: true)
+                self.reminders.remove(at: indexPath.row)
+                remindersTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+                self.remindersTable.reloadData()
+                //Re-load the table view
+                DispatchQueue.main.async{
+                    //Check for no reminders in device
+                    if self.titles.count == 0
+                    {
+                        let controller = UIAlertController(title: "No reminders available", message: "There are no reminders on your phone, please set up a reminder first", preferredStyle: .alert)
+                        let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: {(action:UIAlertAction!)-> Void in self.performSegue(withIdentifier: self.newReminderSegueIdentifier, sender: self)})
+                        controller.addAction(cancelAction)
+                        self.present(controller, animated: true, completion: nil)
+                        
+                    }
+                }
+            }catch{
+                print("An error occurred while removing the reminder from the Calendar database: \(error)")
+            }
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
 
     
     //END OF SECTION FOR METHODS RELATED TO TABLE VIEW

@@ -8,8 +8,9 @@
 
 import UIKit
 import EventKit
+import MapKit
 
-class NewEventViewController: UIViewController {
+class NewEventViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var reminderText: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -20,12 +21,16 @@ class NewEventViewController: UIViewController {
     
     //Add a var for the event that will ask for permission
     var eventStore = EKEventStore()
+    // This is for the location
+    //Maps stuff
+    var locationManager:CLLocationManager!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         askForPermission()
+        determineCurrentLocation()
     }
     
     override func didReceiveMemoryWarning() {
@@ -116,5 +121,20 @@ class NewEventViewController: UIViewController {
             present(controller, animated: true, completion: nil)
         }
     }
+    
+    //Location 
+    func determineCurrentLocation()
+    {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            //locationManager.startUpdatingHeading()
+            locationManager.startUpdatingLocation()
+        }
+    }
+
 
 }
