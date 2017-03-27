@@ -26,12 +26,53 @@ class NewEventViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     var locationManager:CLLocationManager!
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        let defaults = UserDefaults.standard
+        defaults.synchronize()
+        checkCredentials()
         askForPermission()
         determineCurrentLocation()
     }
+    
+    
+    //This overrides when the view appears so that it re-loads without the need of closing and re-opening the app
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        checkCredentials()
+    }
+    //Check that the username and password are right
+    //Username: admin
+    //Password: Pa$$word1
+    func checkCredentials() -> Void
+    {
+        let defaults = UserDefaults.standard
+        let userNamekey = "username_preference"
+        let passwordKey = "password_preference"
+        
+        if(defaults.string(forKey: userNamekey) != "admin" && defaults.string(forKey: passwordKey) != "Pa$$word1")
+        {
+            let controller = UIAlertController(title: "You did not enter the right credentials", message: "You need the right credentials to use this app. Please contact your system admin to get them. (Or view the source code ;))", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Open Settings", style: .default, handler: {(action:UIAlertAction!)-> Void in self.openSettingsApp()})
+            controller.addAction(cancelAction)
+            self.present(controller, animated: true, completion: nil)
+        }
+
+    }
+    
+    func openSettingsApp() -> Void
+    {
+        let application = UIApplication.shared
+        let url = URL(string: UIApplicationOpenSettingsURLString)! as URL
+        if application.canOpenURL(url)
+        {
+            application.open(url, options: ["" : ""], completionHandler: nil)
+        }
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
