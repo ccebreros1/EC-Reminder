@@ -291,18 +291,18 @@
             </objects>
             <point key="canvasLocation" x="757.97101449275374" y="-98.641304347826093"/>
         </scene>
-        <!--Tab Bar View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="IXs-dZ-ZFg">
             <objects>
-                <tabBarController id="qWy-0O-sKq" customClass="TabBarViewController" customModule="EC_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="qWy-0O-sKq" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Hpj-a2-p71">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="23h-sV-gV1"/>
-                        <segue destination="kNG-uc-Teq" kind="relationship" relationship="viewControllers" id="44J-sN-Brw"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Eye-2P-2vT"/>
+                        <segue destination="kNG-uc-Teq" kind="relationship" relationship="viewControllers" id="u4A-Wr-ITe"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3LI-GF-fce" userLabel="First Responder" sceneMemberID="firstResponder"/>
