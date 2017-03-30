@@ -17,6 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let userNamekey = "username_preference"
+        let passwordKey = "password_preference"
+        
+        let defaults = UserDefaults.standard
+        defaults.register(defaults: [userNamekey: "", passwordKey: ""])
+        if defaults.value(forKey: userNamekey) == nil {
+            defaults.set(nil, forKey: userNamekey)
+        }
+        if defaults.value(forKey: passwordKey) == nil {
+            defaults.set(nil, forKey: passwordKey)
+        }
         return true
     }
 

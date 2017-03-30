@@ -16,6 +16,13 @@ class TabBarViewController: UITabBarController {
         
         // Do any additional setup after loading the view.
     }
+    
+    //This overrides when the view appears so that it re-loads without the need of closing and re-opening the app
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(animated)
+        checkCredentials()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -31,7 +38,7 @@ class TabBarViewController: UITabBarController {
         let userNamekey = "username_preference"
         let passwordKey = "password_preference"
         
-        if(defaults.string(forKey: userNamekey) != "admin" && defaults.string(forKey: passwordKey) != "Pa$$word1")
+        if(defaults.object(forKey: userNamekey) as? String != "admin" && defaults.object(forKey: passwordKey) as? String != "Pa$$word1")
         {
             let controller = UIAlertController(title: "You did not enter the right credentials", message: "You need the right credentials to use this app. Please contact your system admin to get them. (Or view the source code ;))", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Open Settings", style: .default, handler: {(action:UIAlertAction!)-> Void in self.openSettingsApp()})
