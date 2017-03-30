@@ -275,7 +275,7 @@
                             <outletCollection property="gestureRecognizers" destination="YvI-ux-ELW" appends="YES" id="yGA-Mh-qGN"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New Reminder" id="BEW-x6-MwU"/>
+                    <tabBarItem key="tabBarItem" title="New Reminder" selectedImage="plus-24" id="BEW-x6-MwU"/>
                     <connections>
                         <outlet property="datePicker" destination="Who-uk-9Bf" id="YEQ-bm-Qbi"/>
                         <outlet property="onlyOnThisLocation" destination="ajb-22-GrZ" id="sDr-7W-hok"/>
@@ -372,7 +372,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="14B-nL-kUd" secondAttribute="leading" id="xQK-k2-xfQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="View Reminders" id="x5W-GF-sYa"/>
+                    <tabBarItem key="tabBarItem" title="View Reminders" selectedImage="list-24" id="x5W-GF-sYa"/>
                     <connections>
                         <outlet property="remindersTable" destination="qXi-25-SPS" id="0de-GP-9Xh"/>
                         <segue destination="qWy-0O-sKq" kind="show" identifier="newReminderSegue" id="44E-mi-CWR"/>
@@ -554,5 +554,7 @@
     </scenes>
     <resources>
         <image name="backButton" width="32" height="32"/>
+        <image name="list-24" width="24" height="24"/>
+        <image name="plus-24" width="24" height="24"/>
     </resources>
 </document>
