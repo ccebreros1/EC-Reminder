@@ -117,21 +117,12 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
             let reminder: EKReminder = reminders[indexPath.row]
             do{
                 try eventStore.remove(reminder, commit: true)
-                self.reminders.remove(at: indexPath.row)
-                remindersTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+                //self.reminders.remove(at: indexPath.row)
+                //remindersTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+                getReminders()
                 self.remindersTable.reloadData()
-                //Re-load the table view
-                DispatchQueue.main.async{
-                    //Check for no reminders in device
-                    if self.titles.count == 0
-                    {
-                        let controller = UIAlertController(title: "No reminders available", message: "There are no reminders on your phone, please set up a reminder first", preferredStyle: .alert)
-                        let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: {(action:UIAlertAction!)-> Void in self.performSegue(withIdentifier: self.newReminderSegueIdentifier, sender: self)})
-                        controller.addAction(cancelAction)
-                        self.present(controller, animated: true, completion: nil)
-                        
-                    }
-                }
+                //self.loadView()
+                //getReminders()
             }catch{
                 print("An error occurred while removing the reminder from the Calendar database: \(error)")
             }
