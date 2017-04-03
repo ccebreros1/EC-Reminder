@@ -9,6 +9,7 @@
 import UIKit
 import EventKit
 import MapKit
+import LocalAuthentication //For fingerprint
 
 class NewEventViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -24,6 +25,8 @@ class NewEventViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     // This is for the location
     //Maps stuff
     var locationManager:CLLocationManager!
+    //fingerprint stuff
+    var context = LAContext()
     
     
     override func viewDidLoad()
@@ -61,13 +64,43 @@ class NewEventViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         let defaults = UserDefaults.standard
         let userNamekey = "username_preference"
         let passwordKey = "password_preference"
+        let fingerprintKey = "fingerprint_preference"
         
-          if(defaults.object(forKey: userNamekey) as? String != "admin" && defaults.object(forKey: passwordKey) as? String != "Pa$$word1")
+        //fingerprint is not used
+        if(defaults.object(forKey: userNamekey) as? String != "admin" && defaults.object(forKey: passwordKey) as? String != "Pa$$word1" && defaults.object(forKey: fingerprintKey) as? Bool != true)
         {
-            let controller = UIAlertController(title: "You did not enter the right credentials", message: "You need the right credentials to use this app. Please contact your system admin to get them. (Or view the source code ;))", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Open Settings", style: .default, handler: {(action:UIAlertAction!)-> Void in self.openSettingsApp()})
-            controller.addAction(cancelAction)
+            let controller = UIAlertController(title: "You did not enter the right credentials", message: "You need the right credentials to use this app. Please contact your system admin to get them. (Or view the source code ;). You can also use your fingerprint!)", preferredStyle: .alert)
+            let settingsAction = UIAlertAction(title: "Open Settings", style: .default, handler: {(action:UIAlertAction!)-> Void in self.openSettingsApp()})
+            controller.addAction(settingsAction)
             self.present(controller, animated: true, completion: nil)
+        }
+        //fingerprint is used
+        if(defaults.object(forKey: fingerprintKey) as? Bool == true && defaults.object(forKey: userNamekey) as? String != "admin" && defaults.object(forKey: passwordKey) as? String != "Pa$$word1")
+        {
+            var error: NSError?
+            
+            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                let reason = "Identify yourself!"
+                
+                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+                    [unowned self] success, authenticationError in
+                    
+                    DispatchQueue.main.async {
+                        if success {
+                            defaults.set("admin", forKey: userNamekey)
+                            defaults.set("Pa$$word1", forKey: passwordKey)
+                        } else {
+                            let ac = UIAlertController(title: "Authentication failed", message: "Sorry!", preferredStyle: .alert)
+                            ac.addAction(UIAlertAction(title: "OK", style: .default))
+                            self.present(ac, animated: true)
+                        }
+                    }
+                }
+            } else {
+                let ac = UIAlertController(title: "Touch ID not available", message: "Your device is not configured for Touch ID.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                present(ac, animated: true)
+            }
         }
 
     }

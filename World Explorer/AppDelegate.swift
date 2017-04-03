@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let userNamekey = "username_preference"
         let passwordKey = "password_preference"
+        let fingerprintKey = "fingerprint_preference"
         
         let defaults = UserDefaults.standard
         defaults.register(defaults: [userNamekey: "", passwordKey: ""])
@@ -28,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         if defaults.value(forKey: passwordKey) == nil {
             defaults.set(nil, forKey: passwordKey)
+        }
+        if defaults.value(forKey: fingerprintKey) == nil
+        {
+            defaults.set(false, forKey: fingerprintKey)
         }
         return true
     }

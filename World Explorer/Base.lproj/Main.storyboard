@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12117" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qWy-0O-sKq">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qWy-0O-sKq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12084"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -275,7 +275,7 @@
                             <outletCollection property="gestureRecognizers" destination="YvI-ux-ELW" appends="YES" id="yGA-Mh-qGN"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New Reminder" selectedImage="plus-24" id="BEW-x6-MwU"/>
+                    <tabBarItem key="tabBarItem" title="New Reminder" image="plus-24" selectedImage="plus-24" id="BEW-x6-MwU"/>
                     <connections>
                         <outlet property="datePicker" destination="Who-uk-9Bf" id="YEQ-bm-Qbi"/>
                         <outlet property="onlyOnThisLocation" destination="ajb-22-GrZ" id="sDr-7W-hok"/>
@@ -341,11 +341,11 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxC-HE-0Kp" id="3Nd-eV-RH5">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="textLabelForCell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y0l-v3-hCL">
-                                                    <rect key="frame" x="15" y="0.0" width="293" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="293" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -372,7 +372,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="14B-nL-kUd" secondAttribute="leading" id="xQK-k2-xfQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="View Reminders" selectedImage="list-24" id="x5W-GF-sYa"/>
+                    <tabBarItem key="tabBarItem" title="View Reminders" image="list-24" selectedImage="list-24" id="x5W-GF-sYa"/>
                     <connections>
                         <outlet property="remindersTable" destination="qXi-25-SPS" id="0de-GP-9Xh"/>
                         <segue destination="qWy-0O-sKq" kind="show" identifier="newReminderSegue" id="44E-mi-CWR"/>

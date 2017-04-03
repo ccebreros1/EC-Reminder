@@ -51,6 +51,7 @@ class EventDetailsViewController: UIViewController, MKMapViewDelegate, CLLocatio
         }
         datePicker.date = (reminder.dueDateComponents?.date)!
         titleLabel.text = reminder.title
+        print(reminder.calendarItemIdentifier)
     }
 
     override func didReceiveMemoryWarning() {

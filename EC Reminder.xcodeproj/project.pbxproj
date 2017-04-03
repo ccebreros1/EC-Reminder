@@ -17,6 +17,7 @@
 		8E5608AB1E68913A00631FC5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5608AA1E68913A00631FC5 /* RootViewController.swift */; };
 		8E7AC2F31E897C200039BBD4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8E7AC2F21E897C200039BBD4 /* Settings.bundle */; };
 		8E9A9BF91E5231DF003F8E75 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A9BF81E5231DF003F8E75 /* EventDetailsViewController.swift */; };
+		8EE230BA1E92C11A0089588D /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE230B91E92C11A0089588D /* LocalAuthentication.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8E5608AA1E68913A00631FC5 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8E7AC2F21E897C200039BBD4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		8E9A9BF81E5231DF003F8E75 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		8EE230B91E92C11A0089588D /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EE230BA1E92C11A0089588D /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +54,7 @@
 				8E7AC2F21E897C200039BBD4 /* Settings.bundle */,
 				8E362B871E326405000D6E8F /* World Explorer */,
 				8E362B861E326405000D6E8F /* Products */,
+				8EE230B81E92C11A0089588D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +81,14 @@
 				8E5608AA1E68913A00631FC5 /* RootViewController.swift */,
 			);
 			path = "World Explorer";
+			sourceTree = "<group>";
+		};
+		8EE230B81E92C11A0089588D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EE230B91E92C11A0089588D /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
