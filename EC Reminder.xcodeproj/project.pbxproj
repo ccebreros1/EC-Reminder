@@ -14,6 +14,8 @@
 		8E362B8E1E326405000D6E8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E362B8C1E326405000D6E8F /* Main.storyboard */; };
 		8E362B901E326405000D6E8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E362B8F1E326405000D6E8F /* Assets.xcassets */; };
 		8E362B931E326405000D6E8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E362B911E326405000D6E8F /* LaunchScreen.storyboard */; };
+		8E4535D31E96AD1600AA4CAB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E4535D21E96AD1600AA4CAB /* libsqlite3.tbd */; };
+		8E4535FA1E96B29200AA4CAB /* coredata.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 8E4535F91E96B29200AA4CAB /* coredata.xcdatamodel */; };
 		8E5608AB1E68913A00631FC5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5608AA1E68913A00631FC5 /* RootViewController.swift */; };
 		8E7AC2F31E897C200039BBD4 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8E7AC2F21E897C200039BBD4 /* Settings.bundle */; };
 		8E9A9BF91E5231DF003F8E75 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A9BF81E5231DF003F8E75 /* EventDetailsViewController.swift */; };
@@ -30,6 +32,9 @@
 		8E362B8F1E326405000D6E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E362B921E326405000D6E8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E362B941E326405000D6E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E4535D21E96AD1600AA4CAB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8E4535D41E96AD9800AA4CAB /* EC Reminder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EC Reminder-Bridging-Header.h"; sourceTree = "<group>"; };
+		8E4535F91E96B29200AA4CAB /* coredata.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coredata.xcdatamodel; sourceTree = "<group>"; };
 		8E5608AA1E68913A00631FC5 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8E7AC2F21E897C200039BBD4 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		8E9A9BF81E5231DF003F8E75 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E4535D31E96AD1600AA4CAB /* libsqlite3.tbd in Frameworks */,
 				8EE230BA1E92C11A0089588D /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,6 +61,7 @@
 				8E362B871E326405000D6E8F /* World Explorer */,
 				8E362B861E326405000D6E8F /* Products */,
 				8EE230B81E92C11A0089588D /* Frameworks */,
+				8E4535D41E96AD9800AA4CAB /* EC Reminder-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +76,7 @@
 		8E362B871E326405000D6E8F /* World Explorer */ = {
 			isa = PBXGroup;
 			children = (
+				8E4535F91E96B29200AA4CAB /* coredata.xcdatamodel */,
 				8E362B881E326405000D6E8F /* AppDelegate.swift */,
 				8E362B8C1E326405000D6E8F /* Main.storyboard */,
 				8E362B8F1E326405000D6E8F /* Assets.xcassets */,
@@ -86,6 +94,7 @@
 		8EE230B81E92C11A0089588D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E4535D21E96AD1600AA4CAB /* libsqlite3.tbd */,
 				8EE230B91E92C11A0089588D /* LocalAuthentication.framework */,
 			);
 			name = Frameworks;
@@ -124,6 +133,7 @@
 					8E362B841E326405000D6E8F = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6T8CBKZ83F;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -169,6 +179,7 @@
 				8E9A9BF91E5231DF003F8E75 /* EventDetailsViewController.swift in Sources */,
 				8E5608AB1E68913A00631FC5 /* RootViewController.swift in Sources */,
 				8E362B891E326405000D6E8F /* AppDelegate.swift in Sources */,
+				8E4535FA1E96B29200AA4CAB /* coredata.xcdatamodel in Sources */,
 				8E2BA0E71E48F04700BA03A8 /* NewEventViewController.swift in Sources */,
 				8E2BA0E51E48EFB800BA03A8 /* ListViewController.swift in Sources */,
 			);
@@ -291,6 +302,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = ECReminder;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6T8CBKZ83F;
 				INFOPLIST_FILE = "World Explorer/Info.plist";
@@ -298,6 +310,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cebreroscesar.ECReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EC Reminder-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -307,6 +321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = ECReminder;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 6T8CBKZ83F;
 				INFOPLIST_FILE = "World Explorer/Info.plist";
@@ -314,6 +329,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cebreroscesar.ECReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EC Reminder-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

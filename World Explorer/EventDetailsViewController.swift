@@ -25,10 +25,10 @@ class EventDetailsViewController: UIViewController, MKMapViewDelegate, CLLocatio
     
     //Outlets
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var map: MKMapView!
+    //@IBOutlet weak var map: MKMapView!
     
     //Maps stuff
-     var locationManager:CLLocationManager!
+     //var locationManager:CLLocationManager!
     
     //URL For oppening reminders app
     @IBOutlet weak var titleLabel: UILabel!
@@ -45,10 +45,10 @@ class EventDetailsViewController: UIViewController, MKMapViewDelegate, CLLocatio
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(reminder.location?.isEmpty)!
+        /*if(reminder.location?.isEmpty)!
         {
             determineCurrentLocation()
-        }
+        }*/
         datePicker.date = (reminder.dueDateComponents?.date)!
         titleLabel.text = reminder.title
         print(reminder.calendarItemIdentifier)
@@ -84,6 +84,7 @@ class EventDetailsViewController: UIViewController, MKMapViewDelegate, CLLocatio
         
     }
     
+    /*
     //Map stuff
     
     func determineCurrentLocation()
@@ -122,6 +123,8 @@ class EventDetailsViewController: UIViewController, MKMapViewDelegate, CLLocatio
     {
         print("Error \(error)")
     }
+ */
+
 
 
 }
