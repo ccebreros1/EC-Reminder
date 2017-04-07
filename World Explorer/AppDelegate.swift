@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "coredata")
+        let container = NSPersistentContainer(name: "ImageModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -105,7 +105,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
     
     //For date components
 
@@ -115,6 +114,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dateComponents = NSCalendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: date as Date)
         return dateComponents as NSDateComponents
     }
+    
+    
 
 
 }

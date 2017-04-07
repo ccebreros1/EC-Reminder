@@ -7,13 +7,17 @@
 //
 //The expandable table view was done taking pieces of code from http://www.appcoda.com/expandable-table-view/
 // Added some functionality from the book
+//For image display and save this tutorials were used:
+//https://github.com/brianadvent/PresentApp/blob/master/PresentBase/ChristmasPresentsTableViewController.swift
+//https://turbofuture.com/cell-phones/Access-Photo-Camera-and-Library-in-Swift
 
 import UIKit
 import EventKit
 import Foundation
 import MapKit
+import CoreData
 
-class EventDetailsViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
+class EventDetailsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     //Reminders stuff
     var reminder: EKReminder!
@@ -23,17 +27,25 @@ class EventDetailsViewController: UIViewController, MKMapViewDelegate, CLLocatio
     let appDelegate = UIApplication.shared.delegate
         as! AppDelegate
     
+    // moc
+    var managedObjextContext : NSManagedObjectContext?
+    
     //Outlets
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var reminderImage: UIImageView!
     //@IBOutlet weak var map: MKMapView!
+    
     
     //Maps stuff
      //var locationManager:CLLocationManager!
     
+    
+    
     //URL For oppening reminders app
-    @IBOutlet weak var titleLabel: UILabel!
+    //var remindersUrl = "x-apple-reminder://"
     var eventId: String!
-    var remindersUrl = "x-apple-reminder://"
+ 
     
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
@@ -44,7 +56,7 @@ class EventDetailsViewController: UIViewController, MKMapViewDelegate, CLLocatio
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         /*if(reminder.location?.isEmpty)!
         {
             determineCurrentLocation()
@@ -60,14 +72,15 @@ class EventDetailsViewController: UIViewController, MKMapViewDelegate, CLLocatio
     }
     
     //Educational purposes. This button will go away if the app is published in Appstore since it interferes with apple's policies using undocumented URLStrings
-    @IBAction func viewInRemindersApp(_ sender: UIButton) {
+   /* @IBAction func viewInRemindersApp(_ sender: UIButton) {
         let concatenation : String = remindersUrl + eventId
         let stringUrl: NSString = concatenation as NSString
         let reminderURL = URL(string: stringUrl as String)
         UIApplication.shared.open(reminderURL!, options: [:], completionHandler: nil)
-    }
-    
-    @IBAction func saveChanges(_ sender: UIButton) {
+    }*/
+ 
+    @IBAction func saveChanges(_ sender: UIButton)
+    {
         
         let date = datePicker.date
         let alarm = EKAlarm(absoluteDate: date)
@@ -83,6 +96,50 @@ class EventDetailsViewController: UIViewController, MKMapViewDelegate, CLLocatio
         }
         
     }
+    
+    //MARK: Camera and Gallery stuff for picking an image
+    
+    //Open the gallery
+    @IBAction func openGallery(_ sender: UIButton)
+    {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary)
+        {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    //Open the camera
+    @IBAction func openCamera(_ sender: UIButton)
+    {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
+        {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    //Delegate for when the image finished being picked
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        reminderImage.image = image
+        self.dismiss(animated: true, completion: nil);
+    }
+    
+    
+    //Save the image to the core data
+    func saveImage(imageData:NSData, name: String)
+    {
+        
+    }
+    
+
+
     
     /*
     //Map stuff
