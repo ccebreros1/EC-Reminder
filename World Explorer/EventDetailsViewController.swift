@@ -29,6 +29,8 @@ class EventDetailsViewController: UIViewController, UIImagePickerControllerDeleg
     
     // moc
     var managedObjextContext : NSManagedObjectContext?
+    //Array of images
+    var images = [ImageFile]()
     
     //Outlets
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -64,6 +66,7 @@ class EventDetailsViewController: UIViewController, UIImagePickerControllerDeleg
         datePicker.date = (reminder.dueDateComponents?.date)!
         titleLabel.text = reminder.title
         print(reminder.calendarItemIdentifier)
+        fetchData(imageId: reminder.calendarItemIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,12 +88,14 @@ class EventDetailsViewController: UIViewController, UIImagePickerControllerDeleg
         let date = datePicker.date
         let alarm = EKAlarm(absoluteDate: date)
         let components = appDelegate.dateComponentFromNSDate(date: date as NSDate)
+        let image = reminderImage.image
+        let imageId = reminder.calendarItemIdentifier
         do {
             reminder.dueDateComponents = components as DateComponents
             reminder.addAlarm(alarm)
             try eventStore.save(reminder, commit: true)
             self.reloadInputViews()
-            print(String(describing: reminder))
+            saveImage(imageData: image!, name: imageId)
         }catch{
             print("Error saving reminder : \(error)")
         }
@@ -111,6 +116,7 @@ class EventDetailsViewController: UIViewController, UIImagePickerControllerDeleg
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
+    
     //Open the camera
     @IBAction func openCamera(_ sender: UIButton)
     {
@@ -126,15 +132,71 @@ class EventDetailsViewController: UIViewController, UIImagePickerControllerDeleg
     }
     
     //Delegate for when the image finished being picked
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        reminderImage.image = image
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            reminderImage.image = image
+        } else if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            reminderImage.image = image
+        } else {
+            reminderImage.image = nil
+        }
         self.dismiss(animated: true, completion: nil);
+    }
+    //Cancel button
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     
     //Save the image to the core data
-    func saveImage(imageData:NSData, name: String)
+    func saveImage(imageData:UIImage, name: String)
     {
+        
+        let picture = ImageFile(context: managedObjextContext!)
+        picture.id = name
+        picture.image = NSData(data: UIImageJPEGRepresentation(imageData, 0.3)!)
+        
+        do {
+            try self.managedObjextContext?.save()
+        }catch {
+            print("Could not save data \(error.localizedDescription)")
+        }
+
+        
+    }
+    
+    //Fetch the image for the reminder
+    func fetchData(imageId: String) {
+        // Initialize Fetch Request
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+        
+        // Create Entity Description
+        let entityDescription = NSEntityDescription.entity(forEntityName: "ImageFile", in: self.managedObjextContext!)
+        
+        // Configure Fetch Request
+        fetchRequest.entity = entityDescription
+        fetchRequest.predicate = NSPredicate(format: "id == %@", imageId)
+        
+        do
+        {
+            
+            let result = try self.managedObjextContext?.fetch(fetchRequest)
+            if ((result?.count)! > 0) {
+                let image = result?[0] as! NSManagedObject
+                
+                if let imageId = image.value(forKey: "id"), let imageFileCore = image.value(forKey: "image") {
+                    //reminderImage.image = UIImage(imageFileCore as! Data)
+                    print("Hey there!")
+                }
+                
+                print("1 - \(image)")
+            }
+            
+        } catch
+        {
+            let fetchError = error as NSError
+            print(fetchError)
+        }
         
     }
     
