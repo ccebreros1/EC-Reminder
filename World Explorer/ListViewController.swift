@@ -10,6 +10,8 @@
 
 import UIKit
 import EventKit
+import CoreData
+import Foundation
 
 class ListViewController:UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -17,6 +19,10 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
     //This is for allowing access to reminders and calendar apps on iOS
     let appDelegate = UIApplication.shared.delegate
         as! AppDelegate
+    
+    //This is for the image stored
+    // moc
+    var managedObjextContext : NSManagedObjectContext?
     
     //Add a var for the event that will ask for permission
     let eventStore = EKEventStore()
@@ -39,6 +45,7 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        managedObjextContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         //Ask for permission
         askForPermission()
         // Do any additional setup after loading the view.
@@ -117,12 +124,9 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
             let reminder: EKReminder = reminders[indexPath.row]
             do{
                 try eventStore.remove(reminder, commit: true)
-                //self.reminders.remove(at: indexPath.row)
-                //remindersTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+                deleteCoreData(reminderId: reminder.calendarItemIdentifier)
                 getReminders()
                 self.remindersTable.reloadData()
-                //self.loadView()
-                //getReminders()
             }catch{
                 print("An error occurred while removing the reminder from the Calendar database: \(error)")
             }
@@ -132,6 +136,41 @@ class ListViewController:UIViewController, UITableViewDataSource, UITableViewDel
 
     
     //END OF SECTION FOR METHODS RELATED TO TABLE VIEW
+    
+    //Delete core data associated
+    func deleteCoreData(reminderId: String)
+    {
+        do {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+            
+            // Create Entity Description
+            let entityDescription = NSEntityDescription.entity(forEntityName: "ImageFile", in: self.managedObjextContext!)
+            
+            // Configure Fetch Request
+            fetchRequest.entity = entityDescription
+            print("entities:" + (String (describing: fetchRequest.entity)))
+            fetchRequest.predicate = NSPredicate(format: "id == %@", reminderId)
+            
+            do
+            {
+                let result = try self.managedObjextContext?.fetch(fetchRequest)
+                
+                if (result?.count != 0)
+                {
+                    for object in result!
+                    {
+                        managedObjextContext?.delete(object as! NSManagedObject)
+                    }
+
+                }
+                
+            }
+            catch
+            {
+                print("Something went wrong")
+            }
+        }
+    }
     
     //Get all reminders
     func getReminders()

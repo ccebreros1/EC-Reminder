@@ -152,13 +152,52 @@ class EventDetailsViewController: UIViewController, UIImagePickerControllerDeleg
     func saveImage(imageData:UIImage, name: String)
     {
         
-        let picture = ImageFile(context: managedObjextContext!)
-        picture.id = name
-        picture.image = NSData(data: UIImageJPEGRepresentation(imageData, 0.3)!)
         
         do {
-            try self.managedObjextContext?.save()
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+            
+            // Create Entity Description
+            let entityDescription = NSEntityDescription.entity(forEntityName: "ImageFile", in: self.managedObjextContext!)
+            
+            // Configure Fetch Request
+            fetchRequest.entity = entityDescription
+            fetchRequest.predicate = NSPredicate(format: "id == %@", name)
+            
+            do
+            {
+                
+                let result = try self.managedObjextContext?.fetch(fetchRequest)
+                if ((result?.count)! != 0)
+                
+                {
+                    let image = result?[0] as! NSManagedObject
+                    let imageData1 = NSData(data: UIImageJPEGRepresentation(imageData, 0.3)!)
+                    image.setValue(imageData1, forKey: "image")
+                    
+                    try self.managedObjextContext?.save()
+                }
+
+                else
+                {
+                    let picture = ImageFile(context: managedObjextContext!)
+                    picture.id = name
+                    picture.image = NSData(data: UIImageJPEGRepresentation(imageData, 0.3)!)
+
+                    try self.managedObjextContext?.save()
+                }
+                let reminderTitle1 = reminderTitle!
+                let controller = UIAlertController(title: "Reminder updated successfully", message: "the reminder \(reminderTitle1) was successfully updated using the new values", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
+                controller.addAction(cancelAction)
+                present(controller, animated: true, completion: nil)
+            }
+  
+            
         }catch {
+            let controller = UIAlertController(title: "Reminder update failed", message: "the reminder \(reminderTitle) failed. Something went wrong, please try again.", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
+            controller.addAction(cancelAction)
+            present(controller, animated: true, completion: nil)
             print("Could not save data \(error.localizedDescription)")
         }
 
@@ -185,6 +224,9 @@ class EventDetailsViewController: UIViewController, UIImagePickerControllerDeleg
                 let image = result?[0] as! NSManagedObject
                 
                 if let imageId = image.value(forKey: "id"), let imageFileCore = image.value(forKey: "image") {
+                    //added this is convert the image
+                    let image1 = imageFileCore as! Data
+                    reminderImage.image = UIImage(data: image1 as Data)
                     //reminderImage.image = UIImage(imageFileCore as! Data)
                     print("Hey there!")
                 }
