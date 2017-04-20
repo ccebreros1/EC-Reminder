@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>This app needs to access your gallery for a custom image for the reminder without going to the gallery</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app needs to access your gallery for a custom image for the reminder</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -21,13 +17,17 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.0</string>
+	<string>3.5</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs to access your gallery for a custom image for the reminder without going to the gallery</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Do you allow this app to know your current location when the app is in use?</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs to access your gallery for a custom image for the reminder</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>By giving access to the reminders, the app will be able to create reminders easily on your device</string>
 	<key>UILaunchStoryboardName</key>

@@ -44,6 +44,8 @@ class NewEventViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        let defaults = UserDefaults.standard
+        defaults.synchronize()
         checkCredentials()
     }
     
@@ -51,9 +53,11 @@ class NewEventViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     override func viewWillAppear(_ animated: Bool)
     {
         super.viewWillAppear(animated)
-        checkCredentials()
+        let defaults = UserDefaults.standard
+        defaults.synchronize()
         let app = UIApplication.shared
         NotificationCenter.default.addObserver(self, selector: #selector(self.applicationWillEnterForeground(notification:)), name: Notification.Name.UIApplicationWillEnterForeground, object: app)
+        checkCredentials()
     }
     //Check that the username and password are right
     //Username: admin
@@ -66,16 +70,60 @@ class NewEventViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         let passwordKey = "password_preference"
         let fingerprintKey = "fingerprint_preference"
         
-        //fingerprint is not used
-        if(defaults.object(forKey: userNamekey) as? String != "admin" && defaults.object(forKey: passwordKey) as? String != "Pa$$word1" && defaults.object(forKey: fingerprintKey) as? Bool != true)
-        {
-            let controller = UIAlertController(title: "You did not enter the right credentials", message: "You need the right credentials to use this app. Please contact your system admin to get them. (Or view the source code ;). You can also use your fingerprint!)", preferredStyle: .alert)
-            let settingsAction = UIAlertAction(title: "Open Settings", style: .default, handler: {(action:UIAlertAction!)-> Void in self.openSettingsApp()})
-            controller.addAction(settingsAction)
-            self.present(controller, animated: true, completion: nil)
+        let userName = defaults.object(forKey: userNamekey) as? String
+        let password = defaults.object(forKey: passwordKey) as? String
+        
+        //api
+        let loginUrl = "https://www.cesarcebreros.com/api/MobileController/"
+
+        //Determine if credentials are right
+        if let url = URL(string: loginUrl + userName! + "/" + password!) {
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            let task = URLSession.shared.dataTask(with: request) {
+                (data: Data?, response: URLResponse?, error: Error?) in
+                guard error == nil else {
+                    print(error!)
+                    return
+                }
+                if let information = String(data: data!, encoding: String.Encoding.utf8) {
+                    print(information)
+                    if information == "true" {
+                        
+                        
+                        DispatchQueue.main.async {
+                            let controller = UIAlertController(title: "Login Succeeded", message: "The credentials are right, more features coming up...", preferredStyle: .alert)
+                            let cancelAction = UIAlertAction(title: "Done", style: .cancel, handler: nil)
+                            controller.addAction(cancelAction)
+                            self.present(controller, animated: true, completion: nil)                        }
+                        
+                        
+                        print("valid login credential")
+                        
+                    } else {
+                        DispatchQueue.main.async {
+                            let controller = UIAlertController(title: "You did not enter the right credentials", message: "You need the right credentials to use this app. Please contact your system admin to get them. (Or view the source code ;). You can also use your fingerprint! or create an account on https://www.cesarcebreros.com/account/register to try my API!)", preferredStyle: .alert)
+                            let settingsAction = UIAlertAction(title: "Open Settings", style: .default, handler: {(action:UIAlertAction!)-> Void in self.openSettingsApp()})
+                            controller.addAction(settingsAction)
+                            self.present(controller, animated: true, completion: nil)
+                            defaults.set("", forKey: userNamekey)
+                            defaults.set("", forKey: passwordKey)
+                        }
+                        print("invalid login credential")
+                    }
+                }
+            }
+            task.resume()
+            
         }
-        //fingerprint is used
-        if(defaults.object(forKey: fingerprintKey) as? Bool == true && defaults.object(forKey: userNamekey) as? String != "admin" && defaults.object(forKey: passwordKey) as? String != "Pa$$word1")
+
+        
+        //fingerprint is not used
+        //if(userName != "admin" &&  password != "Pa$$word1" && defaults.object(forKey: fingerprintKey) as? Bool != true)
+        //{
+        //}
+        //fingerprint is used (MOCK AUTHENTICATION. CAN DEVELOP FURTHER)
+        if(defaults.object(forKey: fingerprintKey) as? Bool == true && defaults.object(forKey: userNamekey) as? String == "" && defaults.object(forKey: passwordKey) as? String == "")
         {
             var error: NSError?
             
@@ -87,8 +135,8 @@ class NewEventViewController: UIViewController, MKMapViewDelegate, CLLocationMan
                     
                     DispatchQueue.main.async {
                         if success {
-                            defaults.set("admin", forKey: userNamekey)
-                            defaults.set("Pa$$word1", forKey: passwordKey)
+                            defaults.set("me@cesarcebreros.com", forKey: userNamekey)
+                            defaults.set("Te$ter1", forKey: passwordKey)
                         } else {
                             let ac = UIAlertController(title: "Authentication failed", message: "Sorry!", preferredStyle: .alert)
                             ac.addAction(UIAlertAction(title: "OK", style: .default))
